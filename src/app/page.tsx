@@ -108,22 +108,24 @@ export default function Home() {
               SOCIAL LINKS
             </h1>
             <div className="grid grid-cols-2 gap-2">
-              <div
+              <a
                 className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
                   theme === "dark" && "bg-[#0A0A0A]"
                 }`}
+                href="https://www.facebook.com/Mrshak8/"
               >
                 <img
-                  src={`/assets/icons/github-${
+                  src={`/assets/icons/facebook-${
                     theme === "dark" ? "light" : "dark"
                   }.svg`}
                 />
-                Github
-              </div>
-              <div
+                Facebook
+              </a>
+              <a
                 className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
                   theme === "dark" && "bg-[#0A0A0A]"
                 }`}
+                href="https://www.linkedin.com/in/paolo-araneta-65b332336/"
               >
                 <img
                   src={`/assets/icons/linkedin-${
@@ -131,11 +133,12 @@ export default function Home() {
                   }.svg`}
                 />
                 LinkedIn
-              </div>
-              <div
+              </a>
+              <a
                 className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
                   theme === "dark" && "bg-[#0A0A0A]"
                 }`}
+                href="https://www.instagram.com/aytsuu_/"
               >
                 <img
                   src={`/assets/icons/instagram-${
@@ -143,11 +146,12 @@ export default function Home() {
                   }.svg`}
                 />
                 Instagram
-              </div>
-              <div
+              </a>
+              <a
                 className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
                   theme === "dark" && "bg-[#0A0A0A]"
                 }`}
+                href="https://github.com/Aytsuu"
               >
                 <img
                   src={`/assets/icons/github-${
@@ -155,7 +159,7 @@ export default function Home() {
                   }.svg`}
                 />
                 Github
-              </div>
+              </a>
             </div>
           </div>
 
@@ -410,6 +414,17 @@ export default function Home() {
                   >
                     <img
                       src={`/assets/icons/instagram-${
+                        theme === "dark" ? "light" : "dark"
+                      }.svg`}
+                    />
+                  </a>
+                  <a
+                    type="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.facebook.com/Mrshak8/"
+                  >
+                    <img
+                      src={`/assets/icons/facebook-${
                         theme === "dark" ? "light" : "dark"
                       }.svg`}
                     />
