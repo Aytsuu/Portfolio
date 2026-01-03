@@ -1,0 +1,175 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\usepackage[margin=1.4cm]{geometry}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.15in}
+ \addtolength{\textwidth}{0.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{0pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}\vspace{0pt}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Large \scshape Paolo Araneta} \\[2mm]
+    \footnotesize \raisebox{-0.1\height}
+    \faPhone\ \underline{(+63) 926-2355-926} ~ 
+    {\faEnvelope\  \underline{paoloaraneta008@gmail.com}} ~ 
+    {\faLinkedin\ \underline{\href{https://www.linkedin.com/in/paolo-araneta-65b332336/}{linkedin.com/in/paolo-araneta}}} ~
+    {\faGithub\ \underline{\href{https://github.com/Aytsuu}{github.com/Aytsuu}}} ~
+    % {\faBriefcase\ \underline{\href{https://mscott-portfolio.vercel.app/}{mscott-portfolio.vercel.app/}}}
+    % \vspace{-8pt}
+\end{center}
+
+ %-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Cebu Technological University}{Expected July 2026}
+      {Bachelor of Science in Information Technology
+      }{Cebu City, Philippines}
+  \resumeSubHeadingListEnd
+    \vspace{-12pt}
+%-----------Experience---------------
+\section{Experience}
+    \resumeSubHeadingListStart
+      \resumeSubheading{Project Management}{Feb 2025 -- Oct 2025}{Cebu Technological University}{Cebu City, Philippines} 
+        \resumeItemListStart
+          \resumeItem{Led the development of a \textbf{Barangay Management System} for San Roque (Ciudad), Cebu City.}
+          \resumeItem{Automated 90\% of manual barangay operations by integrating workflows into a centralized digital platform, boosting staff efficiency by 90\%.}
+          \resumeItem{Developed \textbf{Securado}, a real-time GPS and GSM tracking system capable of transmitting live coordinates to the cloud.}
+          \resumeItem{Collaborated closely with stakeholders and the development team to deliver high-quality software aligned with user requirements.}
+        \resumeItemListEnd
+      \resumeSubheading{Technical Training Instructor (Student Role)}{Aug 2025 -- Oct 2025}{Barangay San Roque (Ciudad)}{Cebu City, Philippines} 
+        \resumeItemListStart
+          \resumeItem{Served as a student trainer for the \textbf{BarangayConnect Training Program}, empowering local residents through hands-on digital literacy training.}
+          \resumeItem{Introduced and demonstrated key features of the barangay system, showcasing its benefits to non-technical users.}
+          \resumeItem{Conducted practical training sessions to assess and improve participants' computer literacy and system usage skills.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+    \vspace{-12pt}
+
+%-----------PROJECTS-----------
+\section{Projects} 
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading{\textbf{Securado} $|$ \emph{Web, Mobile, IoT}}{React, TypeScript, Django, PostgreSQL}
+      \resumeItemListStart
+        \resumeItem{Developed web and mobile applications using React and React Native (Expo) integrated via a RESTful Django backend}
+        \resumeItem{Built a GPS and GSM-enabled tracking device with ESP32 for real-time geolocation.}
+        \resumeItem{Implemented modular solar charging and cloud-based telemetry for continuous operation.}
+      \resumeItemListEnd
+    \vspace{-20pt}
+    \resumeProjectHeading
+      {\textbf{Barangay San Roque (Ciudad)} $|$ \emph{Web, Mobile}}{React, TypeScript, Django, PostgreSQL}
+      \resumeItemListStart
+        \resumeItem{Developed a cross-platform barangay management system with automated Know Your Customer (KYC) verification and assessment for resident registration in barangay San Roque (Ciudad), Cebu City.}
+        \resumeItem{Synchronized dual databases to ensure consistent real-time data access.}
+        \resumeItem{Set up CI/CD pipelines with GitHub Actions for integration testing and deployed via Render.}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-12pt}
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{   
+      \textbf{Languages}{: Python, Java, JavaScript (TypeScript), SQL, NoSQL, HTML, CSS} \\[1mm]
+      \textbf{Frameworks}{: React, Django, Node.js, Flask, FastAPI, TailwindCSS} \\[1mm]
+      \textbf{Databases}{: PostgreSQL, MySQL, Supabase, MongoDB} \\[1mm]
+      \textbf{Developer Tools}{: Git, GitHub, Postman, VS Code}
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+ \vspace{3pt}
+\vspace{10pt}
+
+\vspace{-15pt}
+
+
+
+\end{document}

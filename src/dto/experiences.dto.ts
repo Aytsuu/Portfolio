@@ -6,7 +6,7 @@ interface props {
 
 export const experiences: props[] = [
   {
-    title: 'Training Instructor (Student Role)',
+    title: 'Technical Training Instructor (Student Role)',
     experiencedAt: 'Barangay San Roque (Ciudad)',
     year: '2025'
   },

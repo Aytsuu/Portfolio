@@ -20,7 +20,17 @@ import { useTheme } from "next-themes";
 import React from "react";
 import { ViewObserver } from "@/components/wrappers/view-observer";
 import Link from "next/link";
-import { div } from "motion/react-client";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -35,8 +45,39 @@ export default function Home() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  if (!mounted) return (<div></div>)
+  const handleResumeDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/resume/main.pdf"
+    link.download = "main.pdf";
+    link.click();
+  };
+
+  if (!mounted) return <div></div>;
   if (!theme) return;
+
+  const resumeDownloader = (
+    <AlertDialog>
+      <AlertDialogTrigger className="text-xs flex flex-row md:text-sm gap-2 items-center cursor-pointer">
+          View Resume
+          <ArrowUpRight size={14} />
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will download the resume PDF file
+            in your system.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction onClick={handleResumeDownload}>
+            Download Resume
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
 
   return (
     mounted && (
@@ -173,10 +214,7 @@ export default function Home() {
               <h1 className="flex flex-row gap-2 items-center text-sm font-bold">
                 <BriefcaseBusiness size={16} /> EXPERIENCE
               </h1>
-              <a className="text-xs flex flex-row gap-2 items-center">
-                View Resume
-                <ArrowUpRight size={14} />
-              </a>
+              {resumeDownloader}
             </div>
             <div className="h-full">
               {experiences.map((exp, index) => (
@@ -254,7 +292,7 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col gap-6">
-              {projects(theme ?? '').map((proj) => (
+              {projects(theme ?? "").map((proj) => (
                 <div className="flex flex-row gap-6" key={proj.name}>
                   <img
                     src={proj.imageURI}
@@ -356,6 +394,7 @@ export default function Home() {
                   <h1 className="flex font-medium flex-row gap-2 items-center">
                     <BriefcaseBusiness size={16} /> Experience
                   </h1>
+                  {resumeDownloader}
                   <div className="h-full">
                     {experiences.map((exp, index) => (
                       <div
@@ -467,10 +506,7 @@ export default function Home() {
               </ViewObserver>
 
               {/* TECH STACK */}
-              <ViewObserver
-                id="tech stack"
-                setActiveSection={setActiveSection}
-              >
+              <ViewObserver id="tech stack" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-10">
                   {Object.entries(techStacksHomePage).map(
                     ([key, val], index) => (
@@ -504,7 +540,7 @@ export default function Home() {
               {/* PROJECTS */}
               <ViewObserver id="projects" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-14">
-                  {projects(theme ?? '').map((proj) => (
+                  {projects(theme ?? "").map((proj) => (
                     <div className="flex flex-row gap-6" key={proj.name}>
                       <img src={proj.imageURI} className="w-50 rounded-sm" />
                       <div className="flex flex-col gap-2">
