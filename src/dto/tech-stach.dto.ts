@@ -1,23 +1,58 @@
-export const techStacks: Record<string, string[]> = {
-  Frontend: ["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS"],
-  Backend: ["Python", "Node.js", "Django", "Flask", "PostgreSQL"],
-  "AI & Machine Learning": ["TensorFlow", "PyTorch", "Numpy", "OpenAI"],
-  "DevOps & Cloud": ["Docker", "Github Actions", "Supabase", "Firebase"],
-  "Developer Tools": [
-    "Github",
-    "Git",
-    "VSCode",
-    "Postman",
-    "Trello",
-    "Figma",
-    "Canva",
-  ],
-};
+interface props {
+  type: string;
+  items: string[];
+}
 
-export const techStacksHomePage: Record<string, string[]> = {
-  Frontend: ["JavaScript", "TypeScript", "React", "Next.js"],
-  Backend: ["Python", "Node.js", "Django", "Flask", "PostgreSQL"],
-  "AI & Machine Learning": ["TensorFlow", "PyTorch", "Numpy", "OpenAI"],
-  "DevOps & Cloud": ["Docker", "Github Actions", "Supabase", "Firebase"],
-  "Developer Tools": ["Github", "Git", "VSCode", "Postman"],
-};
+export const techStacks: props[] = [
+  {
+    type: "Frontend",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Vite",
+      "ESLint",
+      "Prettier",
+      "HTML",
+      "CSS",
+    ],
+  },
+  {
+    type: "Backend",
+    items: [
+      "Python",
+      "Node.js",
+      "Django",
+      "Flask",
+      "PostgreSQL",
+      "MongoDB",
+      "REST",
+      "MySQL",
+    ],
+  },
+  {
+    type: "AI & Machine Learning",
+    items: [
+      "TensorFlow",
+      "PyTorch",
+      "Numpy",
+      "OpenAI",
+      "Hugging Face",
+      "LangChain",
+    ],
+  },
+  {
+    type: "DevOps & Cloud",
+    items: ["Docker", "Github Actions", "Supabase", "Firebase"],
+  },
+  {
+    type: "Developer Tools",
+    items: ["Github", "Git", "VSCode", "Postman", "Trello", "Figma", "Canva"],
+  },
+];
+
+export const techStacksHomePage: props[] = techStacks.map((stack) => ({
+  type: stack.type,
+  items: stack.items.slice(0, 5)
+}))

@@ -21,7 +21,9 @@ export const metadata: Metadata = {
   description: "A full-stack software enginner based in Cebu, Philippines. I build accessible, pixel-perfect digital experiences for the web.",
   metadataBase: new URL("https://paoloaraneta.dev"),
   alternates: { canonical: "https://paoloaraneta.dev" },
-  icons: {},
+  icons: {
+    icon: ''
+  },
   openGraph: {
     type: "website",
     url: "https://paoloaraneta.dev",

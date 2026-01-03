@@ -48,13 +48,13 @@ export default function TechStack() {
 
       {/* MAIN CONTENT */}
       <div className="w-full flex flex-col gap-8">
-        {Object.entries(techStacks).map(([key, val], index) => (
-          <div className="flex flex-col gap-6" key={`${key}-${index}`}>
-            <h1 className="font-semibold text-lg">{key}</h1>
+        {techStacks.map((stack, index) => (
+          <div className="flex flex-col gap-6" key={`${stack.type}-${index}`}>
+            <h1 className="font-semibold text-lg">{stack.type}</h1>
             <div className="flex flex-wrap gap-3">
-              {val.map((stack) => (
-                <Badge className="md:min-w-24 py-1.5 px-4" key={`${key}-${stack}`}>
-                  {stack}
+              {stack.items.map((item) => (
+                <Badge className="md:min-w-24 py-1.5 px-4" key={`${stack.type}-${item}`}>
+                  {item}
                 </Badge>
               ))}
             </div>

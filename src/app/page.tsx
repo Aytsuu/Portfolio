@@ -239,12 +239,12 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col gap-4">
-              {Object.entries(techStacksHomePage).map(([key, val]) => (
-                <div className="flex flex-col gap-3" key={key}>
-                  <h1 className="font-medium text-sm">{key}</h1>
+              {techStacksHomePage.map((stack) => (
+                <div className="flex flex-col gap-3" key={stack.type}>
+                  <h1 className="font-medium text-sm">{stack.type}</h1>
                   <div className="flex flex-wrap gap-2">
-                    {val.map((stack) => (
-                      <Badge key={`${key}-${stack}`}>{stack}</Badge>
+                    {stack.items.map((item) => (
+                      <Badge key={`${stack.type}-${item}`}>{item}</Badge>
                     ))}
                   </div>
                 </div>
@@ -453,20 +453,20 @@ export default function Home() {
               {/* TECH STACK */}
               <ViewObserver id="tech stack" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-10">
-                  {Object.entries(techStacksHomePage).map(
-                    ([key, val], index) => (
+                  {techStacksHomePage.map(
+                    (stack, index) => (
                       <div
                         className="flex flex-col gap-6"
-                        key={`${key}-${index}`}
+                        key={`${stack.type}-${index}`}
                       >
-                        <h1 className="font-medium">{key}</h1>
+                        <h1 className="font-medium">{stack.type}</h1>
                         <div className="flex flex-wrap gap-3">
-                          {val.map((stack) => (
+                          {stack.items.map((item) => (
                             <Badge
                               className="min-w-24 py-1.5 px-4"
-                              key={`${key}-${stack}`}
+                              key={`${stack.type}-${item}`}
                             >
-                              {stack}
+                              {item}
                             </Badge>
                           ))}
                         </div>
