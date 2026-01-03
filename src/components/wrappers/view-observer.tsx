@@ -3,7 +3,7 @@
 import { useInView } from "motion/react";
 import React from "react";
 
-export const SectionWrapper = ({
+export const ViewObserver = ({
   id,
   children,
   setActiveSection,

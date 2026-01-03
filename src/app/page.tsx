@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import React from "react";
-import { SectionWrapper } from "@/components/wrappers/section-wrapper";
+import { ViewObserver } from "@/components/wrappers/view-observer";
 import Link from "next/link";
 import { div } from "motion/react-client";
 
@@ -447,7 +447,7 @@ export default function Home() {
             {/* SCROLLABLE SECTION */}
             <div className="w-1/2 flex flex-col pt-10 gap-16 z-5">
               {/* ABOUT */}
-              <SectionWrapper id="about" setActiveSection={setActiveSection}>
+              <ViewObserver id="about" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-4">
                   <p className="leading-7">
                     I’m a full-stack software engineer with 3 years of
@@ -464,10 +464,10 @@ export default function Home() {
                     fast-evolving tech landscape.
                   </p>
                 </div>
-              </SectionWrapper>
+              </ViewObserver>
 
               {/* TECH STACK */}
-              <SectionWrapper
+              <ViewObserver
                 id="tech stack"
                 setActiveSection={setActiveSection}
               >
@@ -499,10 +499,10 @@ export default function Home() {
                     View Tech Stack <MoveUpRight size={14} />
                   </Link>
                 </div>
-              </SectionWrapper>
+              </ViewObserver>
 
               {/* PROJECTS */}
-              <SectionWrapper id="projects" setActiveSection={setActiveSection}>
+              <ViewObserver id="projects" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-14">
                   {projects.map((proj) => (
                     <div className="flex flex-row gap-6" key={proj.name}>
@@ -528,7 +528,7 @@ export default function Home() {
                     View Projects Archive <MoveUpRight size={14} />
                   </Link>
                 </div>
-              </SectionWrapper>
+              </ViewObserver>
             </div>
           </div>
         </div>
