@@ -87,7 +87,8 @@ export default function RootLayout({
               sameAs: [
                 'https://github.com/Aytsuu',
                 'https://www.instagram.com/aytsuu_/',
-                'https://www.linkedin.com/in/paolo-araneta-65b332336/'
+                'https://www.linkedin.com/in/paolo-araneta-65b332336/',
+                'https://www.facebook.com/Mrshak8/'
               ],
               jobTitle: 'Full-Stack Software Engineer'
             })
