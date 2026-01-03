@@ -10,7 +10,7 @@ export const socials: props[] = [
   },
   {
     type: "Instagram",
-    link: "https://www.linkedin.com/in/paolo-araneta-65b332336/",
+    link: "https://www.instagram.com/aytsuu_/",
   },
   {
     type: "Facebook",
@@ -18,6 +18,6 @@ export const socials: props[] = [
   },
   {
     type: "LinkedIn",
-    link: "https://www.instagram.com/aytsuu_/",
+    link: "https://www.linkedin.com/in/paolo-araneta-65b332336/",
   },
 ];

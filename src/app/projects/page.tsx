@@ -45,25 +45,27 @@ export default function Projects() {
           />
         </div>
       </div>
-      
+
       {/* MAIN CONTENT */}
       <div className="flex flex-col gap-14">
-        {projects(theme ?? '').map((proj) => (
+        {projects(theme ?? "dark").map((proj) => (
           <div className="flex flex-col md:flex-row gap-6" key={proj.name}>
             <img
               src={proj.imageURI}
               className="w-50 hidden md:block rounded-sm"
             />
             <div className="flex flex-col gap-3">
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-row text-lg items-center gap-2 font-semibold"
-                href={proj.link}
-              >
-                {proj.name}
-                <MoveUpRight size={14} />
-              </a>
+              {proj.link && proj.link.trim() !== "" && (
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-row text-lg items-center gap-2 font-semibold"
+                  href={proj.link}
+                >
+                  {proj.name}
+                  <MoveUpRight size={14} />
+                </a>
+              )}
               <p className="text-sm">{proj.description}</p>
               <div className="flex flex-wrap gap-2">
                 {proj.techStack.map((stack) => (

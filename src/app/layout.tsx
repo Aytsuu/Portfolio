@@ -21,9 +21,7 @@ export const metadata: Metadata = {
   description: "A full-stack software enginner based in Cebu, Philippines. I build accessible, pixel-perfect digital experiences for the web.",
   metadataBase: new URL("https://paoloaraneta.dev"),
   alternates: { canonical: "https://paoloaraneta.dev" },
-  icons: {
-    icon: ''
-  },
+  icons: {},
   openGraph: {
     type: "website",
     url: "https://paoloaraneta.dev",
@@ -111,7 +109,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
         </ThemeProvider>
       </body> 

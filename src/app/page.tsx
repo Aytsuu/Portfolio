@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { experiences } from "@/dto/experiences.dto";
 import { projects } from "@/dto/projects.dto";
-import { techStacks, techStacksHomePage } from "@/dto/tech-stach.dto";
+import { techStacksHomePage } from "@/dto/tech-stach.dto";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
@@ -51,9 +51,9 @@ export default function Home() {
     link.href = "/resume/main.pdf";
     link.download = "main.pdf";
     link.click();
-  };
+  }
 
-  if (!mounted) return <div></div>;
+  if (!mounted) return;
   if (!theme) return;
 
   const resumeDownloader = (
@@ -111,9 +111,9 @@ export default function Home() {
                 Cebu, Philippines
               </h1>
               <p className="mt-4 font-light text-sm max-w-70 hidden sm:block">
-                      I build accessible, pixel-perfect digital experiences for
-                      the web.
-                    </p>
+                I build accessible, pixel-perfect digital experiences for the
+                web.
+              </p>
             </div>
             <img
               src={"https://picsum.photos/800/400"}
@@ -158,24 +158,27 @@ export default function Home() {
               SOCIAL LINKS
             </h1>
             <div className="grid grid-cols-2 gap-2">
-              {socials.map((social) => (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
-                    theme === "dark" && "bg-[#0A0A0A]"
-                  }`}
-                  href={social.link}
-                  key={social.type}
-                >
-                  <img
-                    src={`/assets/icons/${social.type.toLowerCase()}-${
-                      theme === "dark" ? "light" : "dark"
-                    }.svg`}
-                  />
-                  {social.type}
-                </a>
-              ))}
+              {socials.map(
+                (social) =>
+                  social.link && social.link.trim() !== "" && (
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
+                        theme === "dark" && "bg-[#0A0A0A]"
+                      }`}
+                      href={social.link}
+                      key={social.type}
+                    >
+                      <img
+                        src={`/assets/icons/${social.type.toLowerCase()}-${
+                          theme === "dark" ? "light" : "dark"
+                        }.svg`}
+                      />
+                      {social.type}
+                    </a>
+                  )
+              )}
             </div>
           </div>
 
@@ -267,22 +270,24 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col gap-6">
-              {projects(theme ?? "").map((proj) => (
+              {projects(theme ?? "dark").map((proj) => (
                 <div className="flex flex-row gap-6" key={proj.name}>
                   <img
                     src={proj.imageURI}
                     className="w-40 h-20 rounded-sm hidden sm:block"
                   />
                   <div className="flex flex-col gap-2">
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex flex-row items-center gap-2 text-base font-semibold"
-                      href={proj.link}
-                    >
-                      {proj.name}
-                      <MoveUpRight size={14} />
-                    </a>
+                    {proj.link && proj.link.trim() !== "" && (
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-row items-center gap-2 text-base font-semibold"
+                        href={proj.link}
+                      >
+                        {proj.name}
+                        <MoveUpRight size={14} />
+                      </a>
+                    )}
                     <p className="text-sm font-light">{proj.description}</p>
                   </div>
                 </div>
@@ -410,20 +415,23 @@ export default function Home() {
 
                 {/* Social Links */}
                 <div className="flex flex-row gap-6">
-                  {socials.map((social) => (
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={social.link}
-                      key={social.type}
-                    >
-                      <img
-                        src={`/assets/icons/${social.type.toLowerCase()}-${
-                          theme === "dark" ? "light" : "dark"
-                        }.svg`}
-                      />
-                    </a>
-                  ))}
+                  {socials.map(
+                    (social) =>
+                      social.link && social.link.trim() !== "" && (
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={social.link}
+                          key={social.type}
+                        >
+                          <img
+                            src={`/assets/icons/${social.type.toLowerCase()}-${
+                              theme === "dark" ? "light" : "dark"
+                            }.svg`}
+                          />
+                        </a>
+                      )
+                  )}
                 </div>
               </div>
             </div>
@@ -453,26 +461,24 @@ export default function Home() {
               {/* TECH STACK */}
               <ViewObserver id="tech stack" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-10">
-                  {techStacksHomePage.map(
-                    (stack, index) => (
-                      <div
-                        className="flex flex-col gap-6"
-                        key={`${stack.type}-${index}`}
-                      >
-                        <h1 className="font-medium">{stack.type}</h1>
-                        <div className="flex flex-wrap gap-3">
-                          {stack.items.map((item) => (
-                            <Badge
-                              className="min-w-24 py-1.5 px-4"
-                              key={`${stack.type}-${item}`}
-                            >
-                              {item}
-                            </Badge>
-                          ))}
-                        </div>
+                  {techStacksHomePage.map((stack, index) => (
+                    <div
+                      className="flex flex-col gap-6"
+                      key={`${stack.type}-${index}`}
+                    >
+                      <h1 className="font-medium">{stack.type}</h1>
+                      <div className="flex flex-wrap gap-3">
+                        {stack.items.map((item) => (
+                          <Badge
+                            className="min-w-24 py-1.5 px-4"
+                            key={`${stack.type}-${item}`}
+                          >
+                            {item}
+                          </Badge>
+                        ))}
                       </div>
-                    )
-                  )}
+                    </div>
+                  ))}
                   <Link
                     href="tech-stack"
                     className="flex font-medium flex-row items-center gap-2 mt-4"
@@ -485,19 +491,21 @@ export default function Home() {
               {/* PROJECTS */}
               <ViewObserver id="projects" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-14">
-                  {projects(theme ?? "").map((proj) => (
+                  {projects(theme ?? "dark").map((proj) => (
                     <div className="flex flex-row gap-6" key={proj.name}>
                       <img src={proj.imageURI} className="w-50 rounded-sm" />
                       <div className="flex flex-col gap-2">
-                        <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex flex-row items-center gap-2 font-semibold"
-                          href={proj.link}
-                        >
-                          {proj.name}
-                          <MoveUpRight size={14} />
-                        </a>
+                        {proj.link && proj.link.trim() !== "" && (
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-row items-center gap-2 font-semibold"
+                            href={proj.link}
+                          >
+                            {proj.name}
+                            <MoveUpRight size={14} />
+                          </a>
+                        )}
                         <p className="text-sm">{proj.description}</p>
                       </div>
                     </div>
