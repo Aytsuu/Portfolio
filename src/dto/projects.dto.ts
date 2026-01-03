@@ -6,7 +6,7 @@ interface ProjectProps {
   link?: string
 }
 
-export const projects: ProjectProps[] = [
+export const projects = (theme: string): ProjectProps[] => [
   {
     name: "Securado",
     description: "Secure what matters, track anywhere anytime. Experience real-time tracking built for safety and reliability.",
@@ -32,7 +32,7 @@ export const projects: ProjectProps[] = [
     name: "Portfolio",
     description: "My personal website, built to showcase my works and get a sense of progress in the field of software development.",
     techStack: ['TypeScript', 'React', 'Next.js', 'OpenAI', 'TailwindCSS'],
-    imageURI: 'https://picsum.photos/800/400',
+    imageURI: `/assets/projects/portfolio_project_${theme === 'dark' ? 'light' : 'dark'}.png`,
     link: 'https://paoloaraneta.dev'
   },
 ]

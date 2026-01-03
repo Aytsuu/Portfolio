@@ -48,7 +48,7 @@ export default function Projects() {
       
       {/* MAIN CONTENT */}
       <div className="flex flex-col gap-14">
-        {projects.map((proj) => (
+        {projects(theme ?? '').map((proj) => (
           <div className="flex flex-col md:flex-row gap-6" key={proj.name}>
             <img
               src={proj.imageURI}

@@ -254,7 +254,7 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col gap-6">
-              {projects.map((proj) => (
+              {projects(theme ?? '').map((proj) => (
                 <div className="flex flex-row gap-6" key={proj.name}>
                   <img
                     src={proj.imageURI}
@@ -504,7 +504,7 @@ export default function Home() {
               {/* PROJECTS */}
               <ViewObserver id="projects" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-14">
-                  {projects.map((proj) => (
+                  {projects(theme ?? '').map((proj) => (
                     <div className="flex flex-row gap-6" key={proj.name}>
                       <img src={proj.imageURI} className="w-50 rounded-sm" />
                       <div className="flex flex-col gap-2">
