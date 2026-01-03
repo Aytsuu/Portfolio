@@ -31,6 +31,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { socials } from "@/dto/socials.dto";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -47,7 +48,7 @@ export default function Home() {
 
   const handleResumeDownload = () => {
     const link = document.createElement("a");
-    link.href = "/resume/main.pdf"
+    link.href = "/resume/main.pdf";
     link.download = "main.pdf";
     link.click();
   };
@@ -58,8 +59,8 @@ export default function Home() {
   const resumeDownloader = (
     <AlertDialog>
       <AlertDialogTrigger className="text-xs flex flex-row md:text-sm gap-2 items-center cursor-pointer">
-          View Resume
-          <ArrowUpRight size={14} />
+        View Resume
+        <ArrowUpRight size={14} />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -91,8 +92,12 @@ export default function Home() {
             />
           </div>
           {/* Personal Information & Title */}
-          <div className="space-y-4 px-4">
-            <div className="flex flex-col items-center">
+          <div className="space-y-4 px-4 sm:flex sm:gap-4">
+            <img
+              src={"https://picsum.photos/800/400"}
+              className="w-70 hidden sm:block rounded-lg"
+            />
+            <div className="flex flex-col items-center sm:items-start">
               <h1 className="flex flex-row gap-2 text-base font-semibold items-center">
                 Paolo Araneta
                 <img
@@ -105,10 +110,14 @@ export default function Home() {
                 <MapPin size={14} />
                 Cebu, Philippines
               </h1>
+              <p className="mt-4 font-light text-sm max-w-70 hidden sm:block">
+                      I build accessible, pixel-perfect digital experiences for
+                      the web.
+                    </p>
             </div>
             <img
               src={"https://picsum.photos/800/400"}
-              className="w-full rounded-lg"
+              className="w-full block sm:hidden rounded-lg"
             />
           </div>
 
@@ -149,58 +158,24 @@ export default function Home() {
               SOCIAL LINKS
             </h1>
             <div className="grid grid-cols-2 gap-2">
-              <a
-                className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
-                  theme === "dark" && "bg-[#0A0A0A]"
-                }`}
-                href="https://www.facebook.com/Mrshak8/"
-              >
-                <img
-                  src={`/assets/icons/facebook-${
-                    theme === "dark" ? "light" : "dark"
-                  }.svg`}
-                />
-                Facebook
-              </a>
-              <a
-                className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
-                  theme === "dark" && "bg-[#0A0A0A]"
-                }`}
-                href="https://www.linkedin.com/in/paolo-araneta-65b332336/"
-              >
-                <img
-                  src={`/assets/icons/linkedin-${
-                    theme === "dark" ? "light" : "dark"
-                  }.svg`}
-                />
-                LinkedIn
-              </a>
-              <a
-                className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
-                  theme === "dark" && "bg-[#0A0A0A]"
-                }`}
-                href="https://www.instagram.com/aytsuu_/"
-              >
-                <img
-                  src={`/assets/icons/instagram-${
-                    theme === "dark" ? "light" : "dark"
-                  }.svg`}
-                />
-                Instagram
-              </a>
-              <a
-                className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
-                  theme === "dark" && "bg-[#0A0A0A]"
-                }`}
-                href="https://github.com/Aytsuu"
-              >
-                <img
-                  src={`/assets/icons/github-${
-                    theme === "dark" ? "light" : "dark"
-                  }.svg`}
-                />
-                Github
-              </a>
+              {socials.map((social) => (
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`border flex flex-row gap-2 rounded-sm items-center p-2 text-sm font-medium ${
+                    theme === "dark" && "bg-[#0A0A0A]"
+                  }`}
+                  href={social.link}
+                  key={social.type}
+                >
+                  <img
+                    src={`/assets/icons/${social.type.toLowerCase()}-${
+                      theme === "dark" ? "light" : "dark"
+                    }.svg`}
+                  />
+                  {social.type}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -435,50 +410,20 @@ export default function Home() {
 
                 {/* Social Links */}
                 <div className="flex flex-row gap-6">
-                  <a
-                    type="_blank"
-                    rel="noopener noreferrer"
-                    href="https://github.com/Aytsuu"
-                  >
-                    <img
-                      src={`/assets/icons/github-${
-                        theme === "dark" ? "light" : "dark"
-                      }.svg`}
-                    />
-                  </a>
-                  <a
-                    type="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.instagram.com/aytsuu_/"
-                  >
-                    <img
-                      src={`/assets/icons/instagram-${
-                        theme === "dark" ? "light" : "dark"
-                      }.svg`}
-                    />
-                  </a>
-                  <a
-                    type="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.facebook.com/Mrshak8/"
-                  >
-                    <img
-                      src={`/assets/icons/facebook-${
-                        theme === "dark" ? "light" : "dark"
-                      }.svg`}
-                    />
-                  </a>
-                  <a
-                    type="_blank"
-                    rel="noopener noreferrer"
-                    href="https://www.linkedin.com/in/paolo-araneta-65b332336/"
-                  >
-                    <img
-                      src={`/assets/icons/linkedin-${
-                        theme === "dark" ? "light" : "dark"
-                      }.svg`}
-                    />
-                  </a>
+                  {socials.map((social) => (
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={social.link}
+                      key={social.type}
+                    >
+                      <img
+                        src={`/assets/icons/${social.type.toLowerCase()}-${
+                          theme === "dark" ? "light" : "dark"
+                        }.svg`}
+                      />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
