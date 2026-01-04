@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
-import { techStacks } from "@/dto/tech-stach.dto";
+import { techStacks } from "@/dto/tech-stacks.dto";
 import { MoveLeft } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";

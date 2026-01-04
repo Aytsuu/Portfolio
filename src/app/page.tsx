@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { experiences } from "@/dto/experiences.dto";
 import { projects } from "@/dto/projects.dto";
-import { techStacksHomePage } from "@/dto/tech-stach.dto";
+import { techStacksHomePage } from "@/dto/tech-stacks.dto";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
@@ -299,9 +299,7 @@ export default function Home() {
         {/* WEB VIEW */}
         <div className="w-full mx-auto hidden lg:block lg:max-w-360 p-10 transition-colors">
           <div
-            className={`fixed top-0 left-0 w-full h-20 p-10 mb-8 ${
-              theme === "dark" ? "bg-black" : "bg-white"
-            } z-10`}
+            className={`fixed top-0 left-0 w-full h-20 p-10 mb-8 z-10`}
           >
             <div className="mx-auto w-full lg:max-w-360 flex justify-end items-center h-full">
               <Switch

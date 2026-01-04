@@ -18,9 +18,7 @@ export default function Projects() {
     <div className="mx-auto w-full py-14 md:py-32 lg:max-w-4xl px-4 md:px-8">
       {/* HEADER */}
       <div
-        className={`fixed top-0 left-0 w-full h-14 md:h-32 mb-8 px-4 md:px-8 ${
-          theme === "dark" ? "bg-black" : "bg-white"
-        } z-10`}
+        className={`fixed top-0 left-0 w-full h-14 md:h-32 mb-8 px-4 md:px-8 z-10`}
       >
         <div className="mx-auto w-full lg:max-w-4xl flex items-center justify-between h-full">
           <div className="flex flex-col gap-2 md:gap-6 md:flex-row">

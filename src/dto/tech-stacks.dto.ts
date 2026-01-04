@@ -26,6 +26,7 @@ export const techStacks: props[] = [
       "Django",
       "Flask",
       "PostgreSQL",
+      "Java",
       "MongoDB",
       "REST",
       "MySQL",
@@ -44,7 +45,7 @@ export const techStacks: props[] = [
   },
   {
     type: "DevOps & Cloud",
-    items: ["Docker", "Github Actions", "Supabase", "Firebase"],
+    items: ["Docker", "Github Actions", "Supabase", "Firebase", "Vercel", "Render"],
   },
   {
     type: "Developer Tools",
