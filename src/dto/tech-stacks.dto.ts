@@ -38,7 +38,6 @@ export const techStacks: props[] = [
       "TensorFlow",
       "PyTorch",
       "Numpy",
-      "OpenAI",
       "Hugging Face",
       "LangChain",
     ],

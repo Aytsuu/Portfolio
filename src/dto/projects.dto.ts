@@ -31,7 +31,7 @@ export const projects = (theme: string): ProjectProps[] => [
   {
     name: "Portfolio",
     description: "My personal website, built to showcase my works and get a sense of progress in the field of software development.",
-    techStack: ['TypeScript', 'React', 'Next.js', 'OpenAI', 'TailwindCSS'],
+    techStack: ['TypeScript', 'React', 'Next.js', 'Lang', 'TailwindCSS'],
     imageURI: `/assets/projects/portfolio_project_${theme === 'dark' ? 'light' : 'dark'}.png`,
     link: 'https://paoloaraneta.dev'
   },
