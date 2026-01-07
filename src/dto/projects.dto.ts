@@ -1,4 +1,4 @@
-interface ProjectProps {
+interface props {
   name: string
   description: string
   techStack: string[]
@@ -6,7 +6,7 @@ interface ProjectProps {
   link?: string
 }
 
-export const projects = (theme: string): ProjectProps[] => [
+export const projects = (theme: string): props[] => [
   {
     name: "Securado",
     description: "Secure what matters, track anywhere anytime. Experience real-time tracking built for safety and reliability.",
@@ -36,3 +36,5 @@ export const projects = (theme: string): ProjectProps[] => [
     link: 'https://paoloaraneta.dev'
   },
 ]
+
+export const projectsHomePage = (theme: string): props[] => projects(theme).slice(0, 4)

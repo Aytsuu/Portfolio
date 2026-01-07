@@ -13,7 +13,7 @@ export const experiences: props[] = [
   {
     title: 'Lead Application Developer / Project Manager',
     experiencedAt: 'CTU | Barangay San Roque (Ciudad)',
-    year: '2024 - Current'
+    year: '2024 - Present'
   },
   {
     title: 'BS Information Technology',

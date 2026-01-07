@@ -53,7 +53,7 @@ export default function TechStack() {
             <h1 className="font-semibold text-lg">{stack.type}</h1>
             <div className="flex flex-wrap gap-3">
               {stack.items.map((item) => (
-                <Badge className="md:min-w-24 py-1.5 px-4" key={`${stack.type}-${item}`}>
+                <Badge className="md:min-w-24 py-1.5 px-4 rounded-sm" key={`${stack.type}-${item}`} variant={"secondary"}>
                   {item}
                 </Badge>
               ))}

@@ -3,17 +3,20 @@
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { experiences } from "@/dto/experiences.dto";
-import { projects } from "@/dto/projects.dto";
+import { projectsHomePage } from "@/dto/projects.dto";
 import { techStacksHomePage } from "@/dto/tech-stacks.dto";
 import {
   ArrowUpRight,
   BriefcaseBusiness,
   ChevronRight,
+  CircleCheck,
   CodeXml,
+  Copyright,
   LayoutDashboard,
   LinkIcon,
   MapPin,
   MoveUpRight,
+  Quote,
   Rocket,
 } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -32,6 +35,8 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { socials } from "@/dto/socials.dto";
+import { testimonialsHomePage } from "@/dto/testimonials.dto";
+import { certificatesHomePage } from "@/dto/certificates.dto";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -51,7 +56,7 @@ export default function Home() {
     link.href = "/resume/main.pdf";
     link.download = "main.pdf";
     link.click();
-  }
+  };
 
   if (!mounted) return;
   if (!theme) return;
@@ -91,7 +96,7 @@ export default function Home() {
               onCheckedChange={handleToggleTheme}
             />
           </div>
-          {/* Personal Information & Title */}
+          {/* PERSONAL INFORMATION & TITLE */}
           <div className="space-y-4 px-4 sm:flex sm:gap-4">
             <img
               src={"https://picsum.photos/800/400"}
@@ -151,7 +156,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Social Links */}
+          {/* SOCIAL LINKS */}
           <div className="space-y-4 px-4">
             <h1 className="flex flex-row items-center text-sm font-bold gap-2">
               <LinkIcon size={16} />
@@ -160,7 +165,8 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-2">
               {socials.map(
                 (social) =>
-                  social.link && social.link.trim() !== "" && (
+                  social.link &&
+                  social.link.trim() !== "" && (
                     <a
                       target="_blank"
                       rel="noopener noreferrer"
@@ -182,7 +188,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Experience */}
+          {/* EXPERIENCE */}
           <div
             className={`space-y-4 p-4 ${
               theme === "dark" ? "bg-[#0A0A0A]" : "bg-[#E9ECEF]"
@@ -199,19 +205,13 @@ export default function Home() {
                 <div className="flex flex-row" key={`${exp.title}-${index}`}>
                   <div className="flex flex-col justify-center items-center">
                     <div
-                      className={`w-3 h-3 rounded-full flex items-center justify-center border ${
-                        theme === "dark" ? "border-white" : "border-black"
+                      className={`w-2.5 h-2.5 rounded-full flex items-center justify-center border ${
+                        theme === "dark" ? "bg-white" : "bg-black"
                       }`}
-                    >
-                      <div
-                        className={`w-2.5 h-2.5 rounded-full ${
-                          theme === "dark" ? "bg-white" : "bg-black"
-                        }`}
-                      />
-                    </div>
+                    ></div>
                     <div
                       className={`w-px h-full ${
-                        theme === "dark" ? "bg-white" : "bg-black"
+                        theme === "dark" ? "bg-white/50" : "bg-black"
                       }`}
                     />
                   </div>
@@ -227,7 +227,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Tech Stack */}
+          {/* TECH STACK */}
           <div className="space-y-4 px-4">
             <div className="flex flex-row justify-between items-center">
               <h1 className="flex flex-row gap-2 items-center text-sm font-bold">
@@ -255,7 +255,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Projects */}
+          {/* PROJECTS */}
           <div className="space-y-4 px-4 mt-4">
             <div className="flex flex-row justify-between items-center">
               <h1 className="flex flex-row items-center font-bold text-sm gap-2">
@@ -270,11 +270,11 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col gap-6">
-              {projects(theme ?? "dark").map((proj) => (
+              {projectsHomePage(theme ?? "dark").map((proj) => (
                 <div className="flex flex-row gap-6" key={proj.name}>
                   <img
                     src={proj.imageURI}
-                    className="w-40 h-20 rounded-sm hidden sm:block"
+                    className="w-40 h-20 rounded-sm shadow-lg hidden sm:block"
                   />
                   <div className="flex flex-col gap-2">
                     {proj.link && proj.link.trim() !== "" && (
@@ -294,13 +294,76 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {/* CERTIFICATES */}
+          <div className="space-y-4 px-4 mt-4">
+            <div className="flex flex-row justify-between items-center">
+              <h1 className="flex flex-row items-center font-bold text-sm gap-2">
+                <CircleCheck size={16} /> CERTIFICATES
+              </h1>
+              <a
+                className="text-xs flex flex-row gap-2 items-center"
+                href="certificates"
+              >
+                View all
+                <ChevronRight size={14} />
+              </a>
+            </div>
+            <div className="flex flex-col gap-6">
+              {certificatesHomePage.map((cert) => (
+                <div className="flex gap-6">
+                  <img src={cert.imageURI} className="w-20 shadow-lg" />
+                  <div className="flex flex-col gap-0.5">
+                    <h1 className="font-semibold">{cert.title}</h1>
+                    <h2 className="text-xs">{cert.subtitle}</h2>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* TESTIMONIALS */}
+          <div className="space-y-4 px-4 mt-4">
+            <div className="flex flex-row justify-between items-center">
+              <h1 className="flex flex-row items-center font-bold text-sm gap-2">
+                <Quote size={16} /> TESTIMONIALS
+              </h1>
+              <a
+                className="text-xs flex flex-row gap-2 items-center"
+                href="testimonials"
+              >
+                View all
+                <ChevronRight size={14} />
+              </a>
+            </div>
+            <div className="flex flex-col gap-6">
+              {testimonialsHomePage.map((val) => (
+                <div className="border rounded-sm shadow-lg p-4">
+                  <Quote size={16} className="hidden lg:block"/>
+                  <div className="space-y-8 p-4">
+                    <img src={val.imageURI} className="border-2 p-1 mx-auto w-20 rounded-full sm:hidden" />
+                    <p className="text-xs sm:text-sm leading-5 md:leading-6 line-clamp-4  ">{val.testimonial}</p>
+                    <div className="flex items-center gap-4">
+                      <img src={val.imageURI} className="w-14 rounded-full border-2 p-1 hidden sm:block" />
+                      <div className="flex flex-col">
+                        <h1 className="font-medium">{val.name}</h1>
+                        <h1 className="text-sm opacity-80">{val.company}</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-center items-center text-xs sm:text-sm gap-1 py-8">
+              <Copyright size={16}/>2026 Paolo Araneta. All rights reserved.
+            </div>
+          </div>
         </div>
 
         {/* WEB VIEW */}
         <div className="w-full mx-auto hidden lg:block lg:max-w-360 p-10 transition-colors">
-          <div
-            className={`fixed top-0 left-0 w-full h-20 p-10 mb-8 z-10`}
-          >
+          <div className={`fixed top-0 left-0 w-full h-20 p-10 mb-8 z-10`}>
             <div className="mx-auto w-full lg:max-w-360 flex justify-end items-center h-full">
               <Switch
                 checked={theme === "dark"}
@@ -312,11 +375,11 @@ export default function Home() {
           <div className="flex flex-row gap-20">
             <div className="w-1/2">
               <div className="sticky top-21 flex flex-col justify-between h-[calc(100vh-160px)]">
-                {/* Personal Information & Title */}
+                {/* PERSONAL INFORMATION & TITLE */}
                 <div className="flex flex-row gap-6 items-center">
                   <img
                     src={"https://picsum.photos/600/400"}
-                    className="w-60 rounded-sm"
+                    className="w-50 rounded-sm"
                   />
                   <div>
                     <h1 className="flex flex-row gap-2 text-2xl font-semibold items-center">
@@ -326,8 +389,8 @@ export default function Home() {
                         className="w-4 h-4"
                       />
                     </h1>
-                    <h1 className="text-base">Software Engineer | Freelance</h1>
-                    <h1 className="flex flex-row gap-1 items-center">
+                    <h1 className="text-sm">Software Engineer | Freelance</h1>
+                    <h1 className="flex flex-row gap-1 items-center text-sm">
                       <MapPin size={14} />
                       Cebu, Philippines
                     </h1>
@@ -338,27 +401,33 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Navigation Menu */}
+                {/* NAVIGATION MENU */}
                 <div className="flex flex-col gap-6">
-                  {["About", "Tech Stack", "Projects"].map((menu) => (
+                  {[
+                    "About",
+                    "Tech Stack",
+                    "Projects",
+                    "Certificates",
+                    "Testimonials",
+                  ].map((menu) => (
                     <div
                       className="flex flex-row items-center gap-6"
                       key={menu}
                     >
                       <div
-                        className={`h-1 rounded-full ${
+                        className={`h-0.5 rounded-full ${
                           theme === "dark" ? "bg-white" : "bg-black"
                         } ${
                           activeSection === menu.toLowerCase()
                             ? "w-26"
-                            : "opacity-60 w-14"
+                            : "opacity-40 w-10"
                         }`}
                       />
                       <h1
-                        className={`font-medium ${
+                        className={`${
                           activeSection == menu.toLowerCase()
-                            ? ""
-                            : "opacity-60"
+                            ? "font-medium"
+                            : "opacity-40"
                         }`}
                       >
                         {menu}
@@ -367,7 +436,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Experience */}
+                {/* EXPERIENCE */}
                 <div className="flex flex-col gap-4">
                   <h1 className="flex font-medium flex-row gap-2 items-center">
                     <BriefcaseBusiness size={16} /> Experience
@@ -381,41 +450,36 @@ export default function Home() {
                       >
                         <div className="flex flex-col justify-center items-center">
                           <div
-                            className={`w-4 h-4 rounded-full flex items-center justify-center border ${
-                              theme === "dark" ? "border-white" : "border-black"
+                            className={`w-2.5 h-2.5 rounded-full flex items-center justify-center border ${
+                              theme === "dark" ? "bg-white" : "bg-black"
                             }`}
-                          >
-                            <div
-                              className={`w-2 h-2 rounded-full ${
-                                theme === "dark" ? "bg-white" : "bg-black"
-                              }`}
-                            />
-                          </div>
+                          />
                           <div
                             className={`w-px h-full ${
-                              theme === "dark" ? "bg-white" : "bg-black"
+                              theme === "dark" ? "bg-white/50" : "bg-black"
                             }`}
                           />
                         </div>
                         <div className="flex flex-col px-5 pb-5 gap-2">
-                          <h1 className="font-medium">{exp.title}</h1>
-                          <h1 className="text-sm opacity-90">
-                            {exp.experiencedAt}
+                          <h1 className="font-medium text-sm">{exp.title}</h1>
+                          <h1 className="text-xs opacity-90 flex items-center gap-3">
+                            {exp.experiencedAt}{" "}
+                            <Badge variant={"outline"} className="  rounded-sm">
+                              {exp.year}
+                            </Badge>
                           </h1>
-                          <Badge variant={"outline"} className="rounded-sm">
-                            {exp.year}
-                          </Badge>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Social Links */}
+                {/* SOCIAL LINKS */}
                 <div className="flex flex-row gap-6">
                   {socials.map(
                     (social) =>
-                      social.link && social.link.trim() !== "" && (
+                      social.link &&
+                      social.link.trim() !== "" && (
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
@@ -435,7 +499,7 @@ export default function Home() {
             </div>
 
             {/* SCROLLABLE SECTION */}
-            <div className="w-1/2 flex flex-col pt-10 gap-16 z-5">
+            <div className="w-1/2 flex flex-col pt-10 gap-24 z-5">
               {/* ABOUT */}
               <ViewObserver id="about" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-4">
@@ -468,8 +532,9 @@ export default function Home() {
                       <div className="flex flex-wrap gap-3">
                         {stack.items.map((item) => (
                           <Badge
-                            className="min-w-24 py-1.5 px-4"
+                            className="min-w-24 py-1.5 px-4 rounded-sm"
                             key={`${stack.type}-${item}`}
+                            variant={"secondary"}
                           >
                             {item}
                           </Badge>
@@ -489,9 +554,12 @@ export default function Home() {
               {/* PROJECTS */}
               <ViewObserver id="projects" setActiveSection={setActiveSection}>
                 <div className="flex flex-col gap-14">
-                  {projects(theme ?? "dark").map((proj) => (
+                  {projectsHomePage(theme ?? "dark").map((proj) => (
                     <div className="flex flex-row gap-6" key={proj.name}>
-                      <img src={proj.imageURI} className="w-50 rounded-sm" />
+                      <img
+                        src={proj.imageURI}
+                        className="w-50 rounded-sm shadow-lg"
+                      />
                       <div className="flex flex-col gap-2">
                         {proj.link && proj.link.trim() !== "" && (
                           <a
@@ -513,6 +581,67 @@ export default function Home() {
                     className="flex font-medium flex-row items-center gap-2 mt-4"
                   >
                     View Projects Archive <MoveUpRight size={14} />
+                  </Link>
+                </div>
+              </ViewObserver>
+
+              {/* CERTIFICATES */}
+              <ViewObserver
+                id="certificates"
+                setActiveSection={setActiveSection}
+              >
+                <div className="flex flex-col gap-14">
+                  {certificatesHomePage.map((cert) => (
+                    <div className="flex gap-6">
+                      <img src={cert.imageURI} className="w-20 shadow-lg" />
+                      <div className="flex flex-col gap-0.5">
+                        <h1 className="text-lg font-bold">{cert.title}</h1>
+                        <h2 className="text-sm">{cert.subtitle}</h2>
+                      </div>
+                    </div>
+                  ))}
+
+                  <Link
+                    href="certificates"
+                    className="flex font-medium flex-row items-center gap-2 mt-4"
+                  >
+                    View Certificates <MoveUpRight size={14} />
+                  </Link>
+                </div>
+              </ViewObserver>
+
+              {/* TESTIMONIALS */}
+              <ViewObserver
+                id="testimonials"
+                setActiveSection={setActiveSection}
+              >
+                <div className="flex flex-col gap-14">
+                  {testimonialsHomePage.map((val) => (
+                    <div className="border rounded-sm shadow-lg p-4">
+                      <Quote size={16} />
+                      <div className="space-y-8 p-4">
+                        <p className="text-sm leading-6">{val.testimonial}</p>
+                        <div className="flex items-center gap-4">
+                          <img
+                            src={val.imageURI}
+                            className="w-14 border-2 p-1 rounded-full"
+                          />
+                          <div className="flex flex-col">
+                            <h1 className="font-medium">{val.name}</h1>
+                            <h1 className="text-sm opacity-80">
+                              {val.company}
+                            </h1>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+
+                  <Link
+                    href="testimonials"
+                    className="flex font-medium flex-row items-center gap-2 mt-4"
+                  >
+                    View Testimonials <MoveUpRight size={14} />
                   </Link>
                 </div>
               </ViewObserver>

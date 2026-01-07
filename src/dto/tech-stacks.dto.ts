@@ -55,4 +55,4 @@ export const techStacks: props[] = [
 export const techStacksHomePage: props[] = techStacks.map((stack) => ({
   type: stack.type,
   items: stack.items.slice(0, 5)
-}))
+})).slice(0, 3)
