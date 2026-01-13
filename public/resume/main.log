@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.23)  13 JAN 2026 08:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.23)  13 JAN 2026 08:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -483,7 +483,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  75i,11n,79p,339b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/MikTeX/fonts/type1/public/fontawesome5/FontAwesome5Brands-Regular.pfb><D:/MikTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (1 page, 141107 bytes).
+Output written on main.pdf (1 page, 141057 bytes).
 PDF statistics:
  86 PDF objects out of 1000 (max. 8388607)
  6 named destinations out of 1000 (max. 500000)
