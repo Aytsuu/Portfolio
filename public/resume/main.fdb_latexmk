@@ -1,8 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1768641711.72974 "d:/nextjs_project/portfolio/public/resume/main.tex" "main.pdf" "main" 1768641712.72331 0
+["pdflatex"] 1768661870.64217 "d:/nextjs_project/portfolio/public/resume/main.tex" "main.pdf" "main" 1768661871.67191 0
   "C:/Users/patty/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1761167431 82039 32c00b46ec68f3ddea0147d75839907f ""
   "C:/Users/patty/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761167040 24208632 306db17707ba91d3cd9ceb737880fa75 ""
   "D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5brands0.enc" 1651500229 2920 d63721872b8c77041b88e51b8f7c291d ""
+  "D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5free0.enc" 1651500229 3083 a707712f77b073b3833e4b1334a30e99 ""
   "D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5free1.enc" 1651500229 3042 0e2b14b9be7d01075a4c4591d5d1781b ""
   "D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5free2.enc" 1651500229 2906 e48aa7c95dea478a2e011bcb4f7878c9 ""
   "D:/MikTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -23,6 +24,7 @@
   "D:/MikTeX/fonts/tfm/public/cm/cmsy9.tfm" 1136765053 1116 25a7bf822c58caf309a702ef79f4afbb ""
   "D:/MikTeX/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "D:/MikTeX/fonts/tfm/public/fontawesome5/fa5brands0.tfm" 1651500229 1380 a61d7c2860b3f6d342213a6b9b229e9e ""
+  "D:/MikTeX/fonts/tfm/public/fontawesome5/fa5free0solid.tfm" 1651500229 1328 8843c76048ec1e1c4b2d1007558b8833 ""
   "D:/MikTeX/fonts/tfm/public/fontawesome5/fa5free1solid.tfm" 1651500229 1316 1c2ee668ea88be9bd4f39690662cc344 ""
   "D:/MikTeX/fonts/tfm/public/fontawesome5/fa5free2solid.tfm" 1651500229 1340 b21002f38a477f345fa9dc96a5613e2b ""
   "D:/MikTeX/fonts/tfm/public/latex-fonts/lasy10.tfm" 1136765053 520 82a3d37183f34b6eb363a161dfc002c2 ""
@@ -77,6 +79,7 @@
   "D:/MikTeX/tex/latex/fontawesome5/fontawesome5-mapping.def" 1651500229 107808 07e47606922c76b1824e149c54155c4c ""
   "D:/MikTeX/tex/latex/fontawesome5/fontawesome5.sty" 1651500229 8112 16dbb19fca3f2df864fea49874356f35 ""
   "D:/MikTeX/tex/latex/fontawesome5/ufontawesomebrands0.fd" 1651500229 1206 b35c804e364d46e802702be118632c48 ""
+  "D:/MikTeX/tex/latex/fontawesome5/ufontawesomefree0.fd" 1651500229 980 f00df3fe21ca0934b441dacef142037f ""
   "D:/MikTeX/tex/latex/fontawesome5/ufontawesomefree1.fd" 1651500229 980 1b42613a5245ed252c04030af746d737 ""
   "D:/MikTeX/tex/latex/fontawesome5/ufontawesomefree2.fd" 1651500229 980 38ce61da47d1ba16e56a2e312b56a515 ""
   "D:/MikTeX/tex/latex/geometry/geometry.cfg" 1578053545 1104 7ac475a4e3466b0b43e138e9356bda83 ""
@@ -110,10 +113,10 @@
   "D:/MikTeX/tex/latex/tools/tabularx.sty" 1700599895 7147 d45559f8a31b8c53ada0640516660003 ""
   "D:/MikTeX/tex/latex/tools/verbatim.sty" 1700599895 7500 db31c3d04f8bc9010e47a5efbbace9ff ""
   "D:/MikTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "d:/nextjs_project/portfolio/public/resume/main.tex" 1768641711 7074 385e20948fb3556fbc9eeb907488aa2b ""
-  "main.aux" 1768641712 673 87f7cc5c47434bbc0db64ec5bc480cd4 "pdflatex"
-  "main.out" 1768641712 390 8178769a591dae54593be5dc5893bd68 "pdflatex"
-  "main.tex" 1768641711 7074 385e20948fb3556fbc9eeb907488aa2b ""
+  "d:/nextjs_project/portfolio/public/resume/main.tex" 1768661869 7053 51ddf236a440337e5671eb37b519daad ""
+  "main.aux" 1768661871 673 87f7cc5c47434bbc0db64ec5bc480cd4 "pdflatex"
+  "main.out" 1768661871 390 8178769a591dae54593be5dc5893bd68 "pdflatex"
+  "main.tex" 1768661869 7053 51ddf236a440337e5671eb37b519daad ""
   (generated)
   "main.aux"
   "main.log"

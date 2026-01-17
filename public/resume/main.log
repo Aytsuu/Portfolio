@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.23)  17 JAN 2026 17:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.23)  17 JAN 2026 22:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -434,7 +434,8 @@ LaTeX Font Info:    Trying to load font information for U+fontawesomebrands0 on 
  (D:\MikTeX\tex/latex/fontawesome5\ufontawesomebrands0.fd)
 LaTeX Font Info:    Font shape `U/fontawesomebrands0/solid/n' in size <9> not available
 (Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead on input line 102.
-
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on input line 104.
+ (D:\MikTeX\tex/latex/fontawesome5\ufontawesomefree0.fd)
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 (Font)              using `OT1/cmr/bx/n' instead on input line 109.
@@ -467,7 +468,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1
 
-{C:/Users/patty/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5free2.enc}{D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5free1.enc}{D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5brands0.enc}] (main.aux)
+{C:/Users/patty/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5free2.enc}{D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5free1.enc}{D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5brands0.enc}{D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5free0.enc}] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -480,17 +481,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 8178769A591DAE54593BE5DC5893BD68;390.
  ) 
 Here is how much of TeX's memory you used:
- 14619 strings out of 474486
- 248333 string characters out of 5760169
- 1950542 words of memory out of 5000000
- 36724 multiletter control sequences out of 15000+600000
- 566215 words of font info for 67 fonts, out of 8000000 for 9000
+ 14638 strings out of 474486
+ 248833 string characters out of 5760169
+ 1951542 words of memory out of 5000000
+ 36738 multiletter control sequences out of 15000+600000
+ 566523 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,79p,339b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/MikTeX/fonts/type1/public/fontawesome5/FontAwesome5Brands-Regular.pfb><D:/MikTeX/fonts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><D:/MikTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (1 page, 141027 bytes).
+Output written on main.pdf (1 page, 142496 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
+ 91 PDF objects out of 1000 (max. 8388607)
  6 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

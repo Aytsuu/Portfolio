@@ -183,6 +183,10 @@ INPUT D:\MikTeX\tex\latex\fontawesome5\ufontawesomebrands0.fd
 INPUT D:\MikTeX\tex\latex\fontawesome5\ufontawesomebrands0.fd
 INPUT D:\MikTeX\tex\latex\fontawesome5\ufontawesomebrands0.fd
 INPUT D:\MikTeX\fonts\tfm\public\fontawesome5\fa5brands0.tfm
+INPUT D:\MikTeX\tex\latex\fontawesome5\ufontawesomefree0.fd
+INPUT D:\MikTeX\tex\latex\fontawesome5\ufontawesomefree0.fd
+INPUT D:\MikTeX\tex\latex\fontawesome5\ufontawesomefree0.fd
+INPUT D:\MikTeX\fonts\tfm\public\fontawesome5\fa5free0solid.tfm
 INPUT D:\MikTeX\fonts\tfm\public\cm\cmcsc10.tfm
 INPUT D:\MikTeX\fonts\tfm\public\cm\cmcsc10.tfm
 INPUT D:\MikTeX\fonts\tfm\public\cm\cmbx12.tfm
@@ -203,6 +207,7 @@ INPUT C:\Users\patty\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT D:\MikTeX\fonts\enc\dvips\fontawesome5\fa5free2.enc
 INPUT D:\MikTeX\fonts\enc\dvips\fontawesome5\fa5free1.enc
 INPUT D:\MikTeX\fonts\enc\dvips\fontawesome5\fa5brands0.enc
+INPUT D:\MikTeX\fonts\enc\dvips\fontawesome5\fa5free0.enc
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
