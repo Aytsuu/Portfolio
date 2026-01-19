@@ -17,17 +17,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default: "Paolo Araneta - Software Engineer",
-    template: "%s | Paolo Araneta"
+    template: "%s | Paolo Araneta",
   },
-  description: "A full-stack software enginner based in Cebu, Philippines. I build accessible, pixel-perfect digital experiences for the web.",
+  description:
+    "A full-stack software enginner based in Cebu, Philippines. I build accessible, pixel-perfect digital experiences for the web.",
   metadataBase: new URL("https://paoloaraneta.dev"),
   alternates: { canonical: "https://paoloaraneta.dev" },
-  icons: {},
   openGraph: {
     type: "website",
     url: "https://paoloaraneta.dev",
     title: "Paolo Araneta - Software Engineer",
-    description: "A full-stack software enginner based in Cebu, Philippines. I build accessible, pixel-perfect digital experiences for the web.",
+    description:
+      "A full-stack software enginner based in Cebu, Philippines. I build accessible, pixel-perfect digital experiences for the web.",
     siteName: "Paolo Araneta",
     images: [],
   },
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Paolo Araneta - Software Engineer",
     description: "See my recent projects.",
-    images: []
+    images: [],
   },
   robots: {
     index: true,
@@ -45,10 +46,9 @@ export const metadata: Metadata = {
       follow: true,
       "max-snippet": -1,
       "max-image-preview": "large",
-      "max-video-preview": -1
-    }
-  }
-
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -60,61 +60,61 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* JSON-LD for Website */}
-        <script 
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: 'Paolo Araneta',
-              url: 'https://paoloaraneta.dev',
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Paolo Araneta",
+              url: "https://paoloaraneta.dev",
               potentialAction: {
-                '@type': 'SearchAction',
-                target: 'https://paoloaraneta.dev/?q={search_term_string}',
-                'query_input': 'required name=search_term_string'
-              }
-            })
+                "@type": "SearchAction",
+                target: "https://paoloaraneta.dev/?q={search_term_string}",
+                query_input: "required name=search_term_string",
+              },
+            }),
           }}
         />
         {/* JSON-LD for Person */}
-        <script 
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Paolo Araneta',
-              url: 'https://paoloaraneta.dev',
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Paolo Araneta",
+              url: "https://paoloaraneta.dev",
               sameAs: [
-                'https://github.com/Aytsuu',
-                'https://www.instagram.com/aytsuu_/',
-                'https://www.linkedin.com/in/paolo-araneta-65b332336/',
-                'https://www.facebook.com/Mrshak8/'
+                "https://github.com/Aytsuu",
+                "https://www.instagram.com/aytsuu_/",
+                "https://www.linkedin.com/in/paolo-araneta-65b332336/",
+                "https://www.facebook.com/Mrshak8/",
               ],
-              jobTitle: 'Full-Stack Software Engineer'
-            })
+              jobTitle: "Full-Stack Software Engineer",
+            }),
           }}
         />
         {/* JSON-LD for SiteNavigationElement */}
-        <script 
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'ItemList',
-              itemListElement: []
-            })
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              itemListElement: [],
+            }),
           }}
         />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Analytics/>
+        <Analytics />
         <ThemeProvider attribute="class" defaultTheme="light">
           {children}
         </ThemeProvider>
-      </body> 
+      </body>
     </html>
   );
 }
