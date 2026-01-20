@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1768661870.64217 "d:/nextjs_project/portfolio/public/resume/main.tex" "main.pdf" "main" 1768661871.67191 0
+["pdflatex"] 1768876526.7466 "d:/nextjs_project/portfolio/public/resume/main.tex" "main.pdf" "main" 1768876531.46576 0
   "C:/Users/patty/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1761167431 82039 32c00b46ec68f3ddea0147d75839907f ""
   "C:/Users/patty/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761167040 24208632 306db17707ba91d3cd9ceb737880fa75 ""
   "D:/MikTeX/fonts/enc/dvips/fontawesome5/fa5brands0.enc" 1651500229 2920 d63721872b8c77041b88e51b8f7c291d ""
@@ -113,10 +113,10 @@
   "D:/MikTeX/tex/latex/tools/tabularx.sty" 1700599895 7147 d45559f8a31b8c53ada0640516660003 ""
   "D:/MikTeX/tex/latex/tools/verbatim.sty" 1700599895 7500 db31c3d04f8bc9010e47a5efbbace9ff ""
   "D:/MikTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "d:/nextjs_project/portfolio/public/resume/main.tex" 1768661869 7053 51ddf236a440337e5671eb37b519daad ""
-  "main.aux" 1768661871 673 87f7cc5c47434bbc0db64ec5bc480cd4 "pdflatex"
-  "main.out" 1768661871 390 8178769a591dae54593be5dc5893bd68 "pdflatex"
-  "main.tex" 1768661869 7053 51ddf236a440337e5671eb37b519daad ""
+  "d:/nextjs_project/portfolio/public/resume/main.tex" 1768876522 7038 3e768b9f213d91da94747c005d87a8e7 ""
+  "main.aux" 1768876530 673 87f7cc5c47434bbc0db64ec5bc480cd4 "pdflatex"
+  "main.out" 1768876530 390 8178769a591dae54593be5dc5893bd68 "pdflatex"
+  "main.tex" 1768876522 7038 3e768b9f213d91da94747c005d87a8e7 ""
   (generated)
   "main.aux"
   "main.log"
