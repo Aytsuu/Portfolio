@@ -620,7 +620,7 @@ export default function Home() {
                     <div className="border rounded-sm shadow-lg p-4">
                       <Quote size={16} />
                       <div className="space-y-8 p-4">
-                        <p className="text-sm leading-6">{val.testimonial}</p>
+                        <p className="text-sm leading-6 line-clamp-8">{val.testimonial}</p>
                         <div className="flex items-center gap-4">
                           <img
                             src={val.imageURI}
