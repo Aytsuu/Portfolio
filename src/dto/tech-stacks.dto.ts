@@ -47,8 +47,16 @@ export const techStacks: props[] = [
     items: ["Docker", "Github Actions", "Supabase", "Firebase", "Vercel", "Render"],
   },
   {
+    type: "Authentication",
+    items: ["JWT", "OAuth"],
+  },
+  {
     type: "Developer Tools",
     items: ["Github", "Git", "VSCode", "Postman", "Trello", "Figma", "Canva"],
+  },
+  {
+    type: "No Code - Low Code",
+    items: ["WordPress"],
   },
 ];
 
