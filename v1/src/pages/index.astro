@@ -62,7 +62,6 @@ const galleryImages = Object.entries(
     alt: fileName.replace(/\.[^.]+$/, "").replace(/[-_]/g, " "),
   };
 });
-
 const contact = {
   name: "Paolo Araneta",
   role: "Software Engineer",
@@ -82,13 +81,29 @@ const contact = {
     <aside class="portfolio-sidebar" aria-label="Portfolio sidebar">
       <nav aria-label="Portfolio sections">
         <ul>
-          <li><a href="#about"><span data-text="Paolo Araneta">Paolo Araneta</span></a></li>
-          <li><a href="#experience"><span data-text="Experience">Experience</span></a></li>
-          <li><a href="#projects"><span data-text="Projects">Projects</span></a></li>
+          <li>
+            <a href="#about"
+              ><span data-text="Paolo Araneta">Paolo Araneta</span></a>
+          </li>
+          <li>
+            <a href="#experience"
+              ><span data-text="Experience">Experience</span></a>
+          </li>
+          <li>
+            <a href="#projects"><span data-text="Projects">Projects</span></a>
+          </li>
           <li><a href="#skills"><span data-text="Skills">Skills</span></a></li>
-          <li><a href="#certificates"><span data-text="Certificates">Certificates</span></a></li>
-          <li><a href="#recommendations"><span data-text="Recommendations">Recommendations</span></a></li>
-          <li><a href="#gallery"><span data-text="Gallery">Gallery</span></a></li>
+          <li>
+            <a href="#certificates"
+              ><span data-text="Certificates">Certificates</span></a>
+          </li>
+          <li>
+            <a href="#recommendations"
+              ><span data-text="Recommendations">Recommendations</span></a>
+          </li>
+          <li>
+            <a href="#gallery"><span data-text="Gallery">Gallery</span></a>
+          </li>
         </ul>
       </nav>
     </aside>
@@ -97,7 +112,7 @@ const contact = {
       <main class="portfolio-main">
         <section
           id="about"
-          class="section-block fade-in-section"
+          class="section-block"
           aria-labelledby="portfolio-heading"
         >
           <div class="about-identity">
@@ -158,7 +173,7 @@ const contact = {
 
         <section
           id="experience"
-          class="section-block fade-in-section"
+          class="section-block"
           aria-labelledby="experience-heading"
         >
           <h2 id="experience-heading">Experience</h2>
@@ -191,7 +206,7 @@ const contact = {
 
         <section
           id="projects"
-          class="section-block fade-in-section"
+          class="section-block"
           aria-labelledby="projects-heading"
         >
           <h2 id="projects-heading">Projects</h2>
@@ -229,7 +244,7 @@ const contact = {
 
         <section
           id="skills"
-          class="section-block fade-in-section"
+          class="section-block"
           aria-labelledby="skills-heading"
         >
           <h2 id="skills-heading">Skills</h2>
@@ -239,7 +254,10 @@ const contact = {
                 const headingId = `skill-${stack.type.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
 
                 return (
-                  <section class="skill-category" aria-labelledby={headingId}>
+                  <section
+                    class="skill-category"
+                    aria-labelledby={headingId}
+                  >
                     <h3 id={headingId}>{stack.type}</h3>
                     <ul class="skill-tags">
                       {stack.items.map((item) => (
@@ -255,7 +273,7 @@ const contact = {
 
         <section
           id="certificates"
-          class="section-block fade-in-section"
+          class="section-block"
           aria-labelledby="certificates-heading"
         >
           <h2 id="certificates-heading">Certificates</h2>
@@ -292,7 +310,7 @@ const contact = {
 
         <section
           id="recommendations"
-          class="section-block fade-in-section"
+          class="section-block"
           aria-labelledby="recommendations-heading"
         >
           <h2 id="recommendations-heading">Recommendations</h2>
@@ -329,14 +347,10 @@ const contact = {
 
         <section
           id="gallery"
-          class="section-block fade-in-section"
+          class="section-block"
           aria-labelledby="gallery-heading"
         >
           <h2 id="gallery-heading">Gallery</h2>
-          <p>
-            Uncurated image references of work environments, blueprints, and
-            code setups.
-          </p>
           <ul class="gallery-grid">
             {
               galleryImages.map((image) => (
@@ -352,27 +366,11 @@ const contact = {
   </div>
 
   <script>
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px 0px -10% 0px",
-      threshold: 0.05,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
     // Scroll tracking for active navigation menu items
     const setupScrollSpy = () => {
       const sections = document.querySelectorAll("section.section-block");
       const navLinks = document.querySelectorAll(".portfolio-sidebar a");
-      
+
       const activeObserverOptions = {
         root: null,
         rootMargin: "-20% 0px -50% 0px",
@@ -434,11 +432,6 @@ const contact = {
     };
 
     document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll(".fade-in-section");
-      sections.forEach((section) => {
-        observer.observe(section);
-      });
-
       setupScrollSpy();
     });
   </script>

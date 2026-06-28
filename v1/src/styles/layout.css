@@ -123,7 +123,6 @@ a:hover {
 
 .portfolio-sidebar {
   padding: 3rem 2rem 1.5rem 2rem;
-  border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-canvas);
 }
 
@@ -768,22 +767,10 @@ a:hover {
 }
 
 
-/* Scroll Fade In Animation support */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Responsive Overrides */
 @media (min-width: 900px) {
   .portfolio-layout {
-    grid-template-columns: 25rem 1fr;
+    grid-template-columns: 18rem 1fr;
   }
 
   .portfolio-sidebar {
@@ -791,8 +778,7 @@ a:hover {
     top: 0;
     height: 100vh;
     border-bottom: none;
-    border-right: 1px solid var(--border-color);
-    padding: 6rem 3rem;
+    padding: 6rem 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -810,7 +796,6 @@ a:hover {
   .projects-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
   .skills-container {
     grid-template-columns: repeat(2, 1fr);
   }
