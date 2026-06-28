@@ -1,0 +1,31 @@
+---
+import Hero from "../components/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Astro Boilerplate"
+  description="Minimal Astro boilerplate for project-context-factory."
+>
+  <main class="page-shell">
+    <Hero
+      title="Start with static-first Astro"
+      body="Use this starter as the baseline. Add routes, content collections, integrations, and islands only when the feature requires them."
+    />
+
+    <section class="mt-8 grid gap-4 md:grid-cols-3">
+      <article class="rounded-[1.5rem] border border-stone-900/10 bg-white/70 p-5 shadow-[0_18px_40px_rgba(30,29,26,0.06)] backdrop-blur">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-800">Static first</p>
+        <p class="mt-3 text-sm leading-7 text-stone-600">Ship HTML by default and add client JavaScript only where the feature requires interactivity.</p>
+      </article>
+      <article class="rounded-[1.5rem] border border-stone-900/10 bg-white/70 p-5 shadow-[0_18px_40px_rgba(30,29,26,0.06)] backdrop-blur">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-800">Thin routes</p>
+        <p class="mt-3 text-sm leading-7 text-stone-600">Keep route files small and move reusable data shaping and domain logic into focused modules.</p>
+      </article>
+      <article class="rounded-[1.5rem] border border-stone-900/10 bg-white/70 p-5 shadow-[0_18px_40px_rgba(30,29,26,0.06)] backdrop-blur">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-800">Selective islands</p>
+        <p class="mt-3 text-sm leading-7 text-stone-600">Hydrate only the smallest widget that needs the browser instead of broad page sections.</p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>

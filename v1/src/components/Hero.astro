@@ -1,0 +1,19 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  body: string;
+}
+
+const {
+  eyebrow = "Astro boilerplate",
+  title,
+  body
+} = Astro.props;
+---
+
+<section class="hero">
+  <p class="hero-eyebrow">{eyebrow}</p>
+  <h1 class="hero-title">{title}</h1>
+  <p class="hero-body">{body}</p>
+</section>
