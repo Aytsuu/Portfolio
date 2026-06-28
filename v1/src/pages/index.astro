@@ -76,19 +76,19 @@ const contact = {
 
 <BaseLayout
   title={`${contact.name}`}
-  description="Semantic content structure for Paolo Araneta's personal portfolio."
+  description="Personal portfolio of Paolo Araneta, presenting engineering projects, experiences, and technical skills with a premium minimalist aesthetic."
 >
   <div class="portfolio-layout">
     <aside class="portfolio-sidebar" aria-label="Portfolio sidebar">
       <nav aria-label="Portfolio sections">
         <ul>
-          <li><a href="#about">Paolo Araneta</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#certificates">Certificates</a></li>
-          <li><a href="#recommendations">Recommendations</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about"><span data-text="Paolo Araneta">Paolo Araneta</span></a></li>
+          <li><a href="#experience"><span data-text="Experience">Experience</span></a></li>
+          <li><a href="#projects"><span data-text="Projects">Projects</span></a></li>
+          <li><a href="#skills"><span data-text="Skills">Skills</span></a></li>
+          <li><a href="#certificates"><span data-text="Certificates">Certificates</span></a></li>
+          <li><a href="#recommendations"><span data-text="Recommendations">Recommendations</span></a></li>
+          <li><a href="#gallery"><span data-text="Gallery">Gallery</span></a></li>
         </ul>
       </nav>
     </aside>
@@ -97,7 +97,7 @@ const contact = {
       <main class="portfolio-main">
         <section
           id="about"
-          class="section-block section-about"
+          class="section-block fade-in-section"
           aria-labelledby="portfolio-heading"
         >
           <div class="about-identity">
@@ -114,19 +114,27 @@ const contact = {
               <p>{contact.summary}</p>
             </div>
           </div>
+
           <address class="contact-details">
-            <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
-            <p>
-              <a href={`tel:${contact.phone.replaceAll(/[\s()-]/g, "")}`}
+            <div>
+              Email: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            </div>
+            <div>
+              Phone: <a href={`tel:${contact.phone.replaceAll(/[\s()-]/g, "")}`}
                 >{contact.phone}</a
               >
-            </p>
+            </div>
           </address>
+
           <ul class="social-list">
             {
               socials.map((social) => (
                 <li>
-                  <a href={social.link}>
+                  <a
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {socialIconSources[social.type] && (
                       <img
                         src={socialIconSources[social.type]}
@@ -140,36 +148,35 @@ const contact = {
               ))
             }
           </ul>
-          <p>
-            Paolo Araneta is a software engineer and BS Information Technology
-            student building web systems across frontend, backend, cloud, and
-            AI-assisted workflows.
-          </p>
-          <p>
-            This page is intentionally unstyled. It exists to define the
-            portfolio's information architecture before visual design,
-            interaction design, and animation work begin.
-          </p>
-          <p><a href={resumePdf}>View resume PDF</a></p>
+
+          <div class="resume-link">
+            <a href={resumePdf} class="resume-btn" target="_blank"
+              >Download Resume PDF</a
+            >
+          </div>
         </section>
 
         <section
           id="experience"
-          class="section-block"
+          class="section-block fade-in-section"
           aria-labelledby="experience-heading"
         >
           <h2 id="experience-heading">Experience</h2>
-          <ol class="content-list">
+          <ol class="experience-timeline">
             {
               experiences.map((experience) => (
-                <li>
-                  <article class="content-item">
+                <li class="experience-timeline-item">
+                  <article>
                     <h3>{experience.title}</h3>
-                    <p>{experience.experiencedAt}</p>
-                    <p>{experience.year}</p>
-                    {experience.location && <p>{experience.location}</p>}
+                    <div class="experience-meta">
+                      <span>{experience.experiencedAt}</span>
+                      <span>{experience.year}</span>
+                      {experience.location && (
+                        <span>{experience.location}</span>
+                      )}
+                    </div>
                     {experience.highlights && (
-                      <ul>
+                      <ul class="experience-highlights">
                         {experience.highlights.map((highlight) => (
                           <li>{highlight}</li>
                         ))}
@@ -184,58 +191,57 @@ const contact = {
 
         <section
           id="projects"
-          class="section-block"
+          class="section-block fade-in-section"
           aria-labelledby="projects-heading"
         >
           <h2 id="projects-heading">Projects</h2>
-          <ol class="content-list">
+          <div class="projects-grid">
             {
               projects.map((project) => (
-                <li>
-                  <article class="content-item">
+                <article class="project-card">
+                  {projectImageSources[project.imageURI] && (
+                    <div class="project-media">
+                      <img
+                        src={projectImageSources[project.imageURI]}
+                        alt={`${project.name} project screenshot`}
+                      />
+                    </div>
+                  )}
+                  <div class="project-info">
                     <h3>{project.name}</h3>
                     <p>{project.description}</p>
-                    {projectImageSources[project.imageURI] && (
-                      <figure class="media-block">
-                        <img
-                          src={projectImageSources[project.imageURI]}
-                          alt={`${project.name} project screenshot`}
-                        />
-                      </figure>
-                    )}
-                    <h4>Technology used</h4>
-                    <ul class="content-list">
-                      {project.techStack.map((technology) => (
-                        <li>{technology}</li>
-                      ))}
-                    </ul>
                     {project.link && (
-                      <p>
-                        <a href={project.link}>Visit project</a>
-                      </p>
+                      <a
+                        href={project.link}
+                        class="project-link-anchor"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Visit project →
+                      </a>
                     )}
-                  </article>
-                </li>
+                  </div>
+                </article>
               ))
             }
-          </ol>
+          </div>
         </section>
 
         <section
           id="skills"
-          class="section-block"
+          class="section-block fade-in-section"
           aria-labelledby="skills-heading"
         >
           <h2 id="skills-heading">Skills</h2>
-          <div class="skill-groups">
+          <div class="skills-container">
             {
               techStacks.map((stack) => {
                 const headingId = `skill-${stack.type.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
 
                 return (
-                  <section class="content-item" aria-labelledby={headingId}>
+                  <section class="skill-category" aria-labelledby={headingId}>
                     <h3 id={headingId}>{stack.type}</h3>
-                    <ul class="content-list">
+                    <ul class="skill-tags">
                       {stack.items.map((item) => (
                         <li>{item}</li>
                       ))}
@@ -249,11 +255,11 @@ const contact = {
 
         <section
           id="certificates"
-          class="section-block"
+          class="section-block fade-in-section"
           aria-labelledby="certificates-heading"
         >
           <h2 id="certificates-heading">Certificates</h2>
-          <ol class="content-list">
+          <div class="certificates-grid">
             {
               certificates.map((certificate) => {
                 const href =
@@ -262,67 +268,80 @@ const contact = {
                   ];
 
                 return (
-                  <li>
-                    <article class="content-item">
+                  <article class="certificate-card">
+                    <div>
                       <h3>{certificate.title}</h3>
-                      <p>{certificate.subtitle}</p>
-                      {href && (
-                        <p>
-                          <a href={href}>View certificate</a>
-                        </p>
-                      )}
-                    </article>
-                  </li>
+                      <p class="certificate-subtitle">{certificate.subtitle}</p>
+                    </div>
+                    {href && (
+                      <a
+                        href={href}
+                        class="certificate-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View certificate →
+                      </a>
+                    )}
+                  </article>
                 );
               })
             }
-          </ol>
+          </div>
         </section>
 
         <section
           id="recommendations"
-          class="section-block"
+          class="section-block fade-in-section"
           aria-labelledby="recommendations-heading"
         >
           <h2 id="recommendations-heading">Recommendations</h2>
-          <ol class="content-list">
+          <div class="recommendations-list">
             {
               testimonials.map((recommendation) => (
-                <li>
-                  <figure class="content-item media-block">
+                <article class="recommendation-card">
+                  <blockquote class="recommendation-quote">
+                    <p>{recommendation.testimonial}</p>
+                  </blockquote>
+                  <div class="recommendation-author">
                     {testimonialImageSources[recommendation.imageURI] && (
-                      <img
-                        src={testimonialImageSources[recommendation.imageURI]}
-                        alt={`${recommendation.name} profile photo`}
-                      />
+                      <div class="recommendation-avatar">
+                        <img
+                          src={testimonialImageSources[recommendation.imageURI]}
+                          alt={`${recommendation.name} profile photo`}
+                        />
+                      </div>
                     )}
-                    <blockquote>
-                      <p>{recommendation.testimonial}</p>
-                    </blockquote>
-                  </figure>
-                </li>
+                    <div class="recommendation-details">
+                      <span class="recommendation-name">
+                        {recommendation.name}
+                      </span>
+                      <span class="recommendation-title">
+                        {recommendation.company}
+                      </span>
+                    </div>
+                  </div>
+                </article>
               ))
             }
-          </ol>
+          </div>
         </section>
 
         <section
           id="gallery"
-          class="section-block"
+          class="section-block fade-in-section"
           aria-labelledby="gallery-heading"
         >
           <h2 id="gallery-heading">Gallery</h2>
           <p>
-            Uncurated image references available for future portfolio
-            storytelling.
+            Uncurated image references of work environments, blueprints, and
+            code setups.
           </p>
-          <ul class="content-list gallery-list">
+          <ul class="gallery-grid">
             {
               galleryImages.map((image) => (
-                <li>
-                  <figure class="content-item media-block">
-                    <img src={image.src} alt={image.alt} />
-                  </figure>
+                <li class="gallery-card">
+                  <img src={image.src} alt={image.alt} />
                 </li>
               ))
             }
@@ -331,4 +350,96 @@ const contact = {
       </main>
     </div>
   </div>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.05,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Scroll tracking for active navigation menu items
+    const setupScrollSpy = () => {
+      const sections = document.querySelectorAll("section.section-block");
+      const navLinks = document.querySelectorAll(".portfolio-sidebar a");
+      
+      const activeObserverOptions = {
+        root: null,
+        rootMargin: "-20% 0px -50% 0px",
+        threshold: 0,
+      };
+
+      const sectionVisibility = new Map();
+
+      const activeObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          sectionVisibility.set(entry.target.id, entry.isIntersecting);
+        });
+
+        // Find the first visible section from top to bottom
+        let activeId = null;
+        for (const section of sections) {
+          if (sectionVisibility.get(section.id)) {
+            activeId = section.id;
+            break;
+          }
+        }
+
+        // Fallback to top-most section if scrolled to top
+        if (window.scrollY < 100) {
+          activeId = "about";
+        }
+
+        if (activeId) {
+          navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            link.classList.toggle("active", href === `#${activeId}`);
+          });
+        }
+      }, activeObserverOptions);
+
+      sections.forEach((section) => {
+        activeObserver.observe(section);
+      });
+
+      // Simple click handler to immediately set active state and avoid lag during smooth scroll
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          const href = link.getAttribute("href");
+          if (href) {
+            navLinks.forEach((l) => l.classList.toggle("active", l === link));
+          }
+        });
+      });
+
+      // Keep scrolling back to top correctly highlighted as "about"
+      window.addEventListener("scroll", () => {
+        if (window.scrollY < 50) {
+          navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            link.classList.toggle("active", href === "#about");
+          });
+        }
+      });
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".fade-in-section");
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+
+      setupScrollSpy();
+    });
+  </script>
 </BaseLayout>

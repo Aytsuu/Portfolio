@@ -20,9 +20,12 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href={profilePicture.src} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Instrument+Serif:ital,wght@0,400;0,400italic;1,400&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-canvas text-primary">
     <slot />
   </body>
 </html>
