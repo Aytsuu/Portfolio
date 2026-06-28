@@ -1,18 +1,16 @@
-# Astro Boilerplate
+# Portfolio v1
 
-Minimal Astro starter intended as a reusable baseline for new projects.
+Semantic personal portfolio content structure for Paolo Araneta.
 
 ## Included
 
 - `package.json` with standard Astro scripts
-- `astro.config.mjs` with a static output baseline and Tailwind 4 Vite plugin
+- `astro.config.mjs` with a static output baseline
 - `tsconfig.json` extending Astro strict settings
 - `src/layouts/BaseLayout.astro` for document shell and metadata
-- `src/components/Hero.astro` as a simple presentational component
-- `src/components/FeatureTile.astro` for the repeated feature-card pattern
-- `src/pages/index.astro` as the default route with Tailwind utility usage
-- `src/styles/global.css` importing Tailwind and project-wide base CSS
-- `src/styles/theme.css` defining shared Tailwind theme tokens
+- `src/pages/index.astro` as the semantic portfolio structure
+- `src/dto/` as structured portfolio content
+- `src/assets/` as resume, project, testimonial, certificate, and gallery references
 
 ## Start
 
@@ -24,6 +22,6 @@ npm run dev
 ## Notes
 
 - Output is `static` by default.
-- Tailwind 4 is configured through `@tailwindcss/vite`; a `tailwind.config` file is optional unless the project needs custom scanning or advanced configuration.
-- Add integrations and adapters only when the project needs them.
-- Keep routes thin and hydrate only isolated interactive components.
+- This version intentionally has no design layer, styling classes, or animation hooks.
+- Keep this phase focused on content hierarchy, semantic HTML, and portfolio information architecture.
+- Add visual design and motion only after the content structure is approved.

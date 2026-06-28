@@ -1,14 +1,12 @@
 ---
-import "../styles/global.css";
-
 interface Props {
   title?: string;
   description?: string;
 }
 
 const {
-  title = "Astro Boilerplate",
-  description = "Minimal Astro starter with a clean layout boundary.",
+  title = "Paolo Araneta",
+  description = "Personal portfolio content structure for Paolo Araneta.",
 } = Astro.props;
 ---
 
@@ -20,7 +18,7 @@ const {
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="bg-canvas text-ink antialiased">
+  <body>
     <slot />
   </body>
 </html>
