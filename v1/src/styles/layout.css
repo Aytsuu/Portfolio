@@ -186,6 +186,18 @@ figure {
   list-style: none;
 }
 
+.social-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.social-list img {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
 .skill-groups {
   display: grid;
   gap: 1.5rem;

@@ -16,6 +16,10 @@ import securadoImage from "../assets/projects/securado_project.png";
 import bellImage from "../assets/testimonials/bell.jpg";
 import narcisanImage from "../assets/testimonials/narcisan.jpg";
 import suzetteImage from "../assets/testimonials/suzette.png";
+import facebookIcon from "../assets/icons/facebook-dark.svg";
+import githubIcon from "../assets/icons/github-dark.svg";
+import instagramIcon from "../assets/icons/instagram-dark.svg";
+import linkedinIcon from "../assets/icons/linkedin-dark.svg";
 
 const projectImageSources: Record<string, string> = {
   "/assets/projects/meiro_project.png": meiroImage.src,
@@ -28,6 +32,13 @@ const testimonialImageSources: Record<string, string> = {
   "/assets/testimonials/bell.jpg": bellImage.src,
   "/assets/testimonials/narcisan.jpg": narcisanImage.src,
   "/assets/testimonials/suzette.png": suzetteImage.src,
+};
+
+const socialIconSources: Record<string, string> = {
+  Facebook: facebookIcon.src,
+  Github: githubIcon.src,
+  Instagram: instagramIcon.src,
+  LinkedIn: linkedinIcon.src,
 };
 
 const certificateFiles = import.meta.glob<string>("../assets/certificates/*", {
@@ -115,7 +126,16 @@ const contact = {
             {
               socials.map((social) => (
                 <li>
-                  <a href={social.link}>{social.type}</a>
+                  <a href={social.link}>
+                    {socialIconSources[social.type] && (
+                      <img
+                        src={socialIconSources[social.type]}
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    )}
+                    <span>{social.type}</span>
+                  </a>
                 </li>
               ))
             }
