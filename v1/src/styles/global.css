@@ -6,7 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-canvas: #fbfbfa;
+  --color-canvas: #ffffff;
   --color-surface: #ffffff;
   --color-primary: #111111;
   --color-secondary: #2f3437;
@@ -113,7 +113,28 @@
     color: var(--color-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
     @apply font-sans;
+  }
+
+  /* Custom Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-hover);
   }
 
   body {
@@ -443,52 +464,58 @@
     @apply mt-auto self-start border-b border-primary pb-0.5 font-mono text-[0.8125rem] font-semibold;
   }
 
-  .skills-story {
-    @apply grid gap-5;
+  .projects-placeholder {
+    @apply relative flex flex-col items-center justify-center gap-4 rounded-lg bg-surface p-12 text-center min-h-[22rem] overflow-hidden;
   }
 
-  .skills-story-grid {
-    @apply grid grid-cols-1 gap-5 lg:grid-cols-2;
+  .placeholder-icon {
+    @apply flex size-14 items-center justify-center rounded-full border border-border bg-canvas text-primary;
   }
 
-  .skill-story-card {
-    @apply relative min-h-[24rem] overflow-hidden border border-border bg-canvas;
+  .placeholder-text {
+    @apply font-mono text-xs font-semibold tracking-wider text-muted uppercase;
   }
 
-  .skill-visual {
-    @apply absolute inset-0 overflow-hidden p-8;
+  .skills-grid {
+    @apply grid grid-cols-1 gap-6 md:grid-cols-2;
   }
 
-  .skill-story-overlay {
-    @apply absolute bottom-5 left-5 z-[2] bg-primary px-4 py-3;
+  .skill-card {
+    @apply flex flex-col gap-4 rounded-lg border border-border bg-surface p-6;
+    transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
   }
 
-  .skill-story-overlay h3 {
-    @apply font-mono text-sm font-semibold uppercase tracking-[0.08em] text-canvas;
+  .skill-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    @apply border-border-hover -translate-y-0.5;
   }
 
-  .skill-beam-visual {
-    @apply relative h-full min-h-[20rem] w-full;
+  .skill-header {
+    @apply flex items-center gap-3.5;
   }
 
-  .skill-beam-layout {
-    @apply relative z-[1] grid h-full grid-cols-[1fr_auto_1fr] items-center gap-5;
+  .skill-icon {
+    @apply flex size-10 items-center justify-center rounded-md border border-border bg-canvas text-primary;
   }
 
-  .skill-beam-column {
-    @apply flex h-full flex-col justify-between py-4;
+  .skill-title {
+    @apply text-base font-semibold text-primary;
   }
 
-  .skill-beam-column:last-child {
-    @apply items-end;
+  .skill-description {
+    @apply text-sm leading-relaxed text-secondary;
   }
 
-  .skill-beam-node {
-    @apply z-[1] grid min-h-12 min-w-20 place-items-center border border-primary bg-surface px-3 font-mono text-xs font-medium text-primary;
+  .skill-tags {
+    @apply mt-auto flex flex-wrap gap-2 pt-2;
   }
 
-  .skill-beam-node-primary {
-    @apply min-h-18 min-w-24 bg-primary text-canvas;
+  .skill-tag {
+    @apply inline-flex items-center rounded-md border border-border bg-canvas px-2.5 py-0.5 font-mono text-[0.72rem] font-medium text-muted transition-colors duration-200;
+  }
+
+  .skill-card:hover .skill-tag {
+    @apply border-border-hover text-secondary;
   }
 
   .recommendation-title {

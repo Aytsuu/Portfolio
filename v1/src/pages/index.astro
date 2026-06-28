@@ -3,7 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { CertificateMarquee } from "../components/certificate-marquee";
 import { GalleryGrid } from "../components/gallery-grid";
 import { RecommendationCard } from "../components/recommendation-card";
-import { techStacks } from "../dto/tech-stacks.dto";
+import { SkillsGrid } from "../components/skills-grid";
+import { DotPattern } from "../components/ui/dot-pattern";
 import { certificates } from "../dto/certificates.dto";
 import { experiences } from "../dto/experiences.dto";
 import { projects } from "../dto/projects.dto";
@@ -300,35 +301,31 @@ const contact = {
           aria-labelledby="projects-heading"
         >
           <h2 id="projects-heading">Projects</h2>
-          <div class="projects-grid">
-            {
-              projects.map((project) => (
-                <article class="project-card">
-                  {projectImageSources[project.imageURI] && (
-                    <div class="project-media">
-                      <img
-                        src={projectImageSources[project.imageURI]}
-                        alt={`${project.name} project screenshot`}
-                      />
-                    </div>
-                  )}
-                  <div class="project-info">
-                    <h3>{project.name}</h3>
-                    <p>{project.description}</p>
-                    {project.link && (
-                      <a
-                        href={project.link}
-                        class="project-link-anchor"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Visit project →
-                      </a>
-                    )}
-                  </div>
-                </article>
-              ))
-            }
+          <div class="projects-placeholder">
+            <DotPattern
+              client:load
+              width={16}
+              height={16}
+              cr={1}
+              className="opacity-40 [mask-image:radial-gradient(300px_circle_at_center,white,transparent)]"
+            />
+            <div class="placeholder-icon relative z-10">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-6 animate-pulse"
+              >
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+            </div>
+            <p class="placeholder-text relative z-10">Building in progress</p>
           </div>
         </section>
 
@@ -338,24 +335,7 @@ const contact = {
           aria-labelledby="skills-heading"
         >
           <h2 id="skills-heading">Skills</h2>
-          <div class="skills-container">
-            {
-              techStacks.map((stack) => {
-                const headingId = `skill-${stack.type.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
-
-                return (
-                  <section class="skill-category" aria-labelledby={headingId}>
-                    <h3 id={headingId}>{stack.type}</h3>
-                    <ul class="skill-tags">
-                      {stack.items.map((item) => (
-                        <li>{item}</li>
-                      ))}
-                    </ul>
-                  </section>
-                );
-              })
-            }
-          </div>
+          <SkillsGrid client:load />
         </section>
 
         <section
