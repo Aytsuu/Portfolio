@@ -9,8 +9,10 @@ Minimal Astro starter intended as a reusable baseline for new projects.
 - `tsconfig.json` extending Astro strict settings
 - `src/layouts/BaseLayout.astro` for document shell and metadata
 - `src/components/Hero.astro` as a simple presentational component
+- `src/components/FeatureTile.astro` for the repeated feature-card pattern
 - `src/pages/index.astro` as the default route with Tailwind utility usage
-- `src/styles/global.css` importing Tailwind and defining shared theme tokens
+- `src/styles/global.css` importing Tailwind and project-wide base CSS
+- `src/styles/theme.css` defining shared Tailwind theme tokens
 
 ## Start
 

@@ -1,0 +1,13 @@
+@theme {
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-ink: #172033;
+  --color-muted: #5a6475;
+  --color-rule: #d8dee8;
+  --color-accent: #0f766e;
+  --color-accent-soft: #ccfbf1;
+  --color-signal: #f59e0b;
+  --font-sans: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --radius-panel: 0.5rem;
+  --shadow-panel: 0 20px 50px rgb(23 32 51 / 0.08);
+}

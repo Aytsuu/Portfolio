@@ -1,0 +1,192 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\usepackage[margin=1.4cm]{geometry}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.15in}
+ \addtolength{\textwidth}{0.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{0pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}\vspace{0pt}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Large \scshape Paolo Araneta} \\[2mm]
+    \footnotesize \raisebox{-0.1\height}
+  \ \underline{(+63) 926-2355-926} \hspace{0.2em}\textbar\hspace{0.2em}
+  {\  \underline{paoloaraneta008@gmail.com}} \hspace{0.2em}\textbar\hspace{0.2em}
+  {\ \underline{\href{https://www.linkedin.com/in/paoloaraneta/}{linkedin.com/in/paoloaraneta}}} \hspace{0.2em}\textbar\hspace{0.2em}
+  {\ \underline{\href{https://github.com/Aytsuu}{github.com/Aytsuu}}}
+    \vspace{-8pt}
+    \vspace{12pt}
+\end{center}
+
+ %-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Cebu Technological University}{Expected July 2026}
+      {Bachelor of Science in Information Technology
+      }{Cebu City, Philippines}
+  \resumeSubHeadingListEnd
+    \vspace{-12pt}
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{   
+      \textbf{Languages}{: Python, C\#, Javascript (Typescript), SQL} \\[1mm]
+      \textbf{Frameworks}{: FastAPI, Django, Flask, .NET, React, Node.js} \\[1mm]
+      \textbf{Tools}{: Git, Github, Docker, REST APIs, PostgreSQL, Redis} \\[1mm]
+      \textbf{Cloud \& DevOps}{: Supabase, CI/CD Pipelines, Dockerized Deployments} \\[1mm]
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+ \vspace{3pt}
+
+%-----------Experience---------------
+\section{Experience}
+    \resumeSubHeadingListStart
+      \resumeSubheading{Software Engineer Intern}{Feb 2026 -- June 2026}{Dinnox IT Solutions}{Cebu City, Philippines} 
+        \resumeItemListStart
+          \resumeItem{Led the development of a client-based website, implemented a structured monolithic architecture, and designed user workflows.}
+          \resumeItem{Fixed a backend bug that heavily affected the development of interns and senior developers.}
+          \resumeItem{Increased team productivity by introducing automation tools, such as leveraging agentic engineering in their workflows.}
+        \resumeItemListEnd
+      \resumeSubheading{Technical Training Instructor}{Aug 2025 -- Oct 2025}{Barangay San Roque (Ciudad)}{Cebu City, Philippines} 
+        \resumeItemListStart
+          \resumeItem{Served as a student trainer for the BarangayConnect Training Program, empowering \textbf{50+} local government workers through hands-on digital literacy training.}
+          \resumeItem{Introduced and demonstrated key features of the barangay system, showcasing its benefits to non-technical residents and staffs.}
+          \resumeItem{Conducted practical training sessions to assess and improve participants' computer literacy and system usage skills.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
+    \vspace{-12pt}
+
+%-----------PROJECTS-----------
+
+\section{Projects} 
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading{\textbf{Orca} $|$ \emph{Python, Astro, React, Redis, Supabase, Docker}}{}
+      \resumeItemListStart
+        \resumeItem{Developed an AI-powered solution that turns real-time conversations into structured project plans so teams never loses sight of their project's finish line.}
+        \resumeItem{Contributed to the development of this project's Minimum Viable Product within 6 days as Full Stack.}
+      \resumeItemListEnd
+    \vspace{-20pt}
+    \resumeProjectHeading{\textbf{Findmyfiles} $|$ \emph{Python, C\#}}{}
+      \resumeItemListStart
+        \resumeItem{Built a searchable memory for Windows desktop files using Gemini Embedding 2 for multimodal data retrieval and embedded it with a vector database.}
+      \resumeItemListEnd
+    \vspace{-20pt}
+    \resumeProjectHeading{\textbf{Hyperlocal Circular Economy Platform} $|$ \emph{React, FastAPI, Supabase, Docker}}{}
+      \resumeItemListStart
+        \resumeItem{Developed an application to divert food wastes from landfill, contributing to environmental wellness while fostering commnuity resilience.}
+        \resumeItem{Integrated an AI inference automation for food waste posting via images using gemini cloud LLM models.}
+      \resumeItemListEnd
+    \vspace{-20pt}
+    \resumeProjectHeading
+      {\textbf{Barangay Management System} $|$ \emph{React, Django, Docker, SQL}}{}
+      \resumeItemListStart
+        \resumeItem{Implemented an automated Know Your Customer (KYC) verification and assessment for resident registration.}
+        \resumeItem{Synchronized dual databases to ensure consistent real-time data access.}
+        \resumeItem{Set up CI/CD pipelines with GitHub Actions for integration testing and continuous delivery via Render and Supabase services.}
+      \resumeItemListEnd
+    \vspace{-20pt}
+    \resumeProjectHeading
+      {\textbf{Face Recognition Profiling} $|$ \emph{React, Flask, NoSQL}}{}
+      \resumeItemListStart
+        \resumeItem{Developed a biometric profiling application using the FaceNet model for high-accuracy face recognition and Flask-SocketIO to enable real-time, bidirectional communication.}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-12pt}
+
+
+
+\vspace{-15pt}
+
+
+
+\end{document}

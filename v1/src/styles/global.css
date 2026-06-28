@@ -1,25 +1,19 @@
 @import "tailwindcss";
+@import "./theme.css";
 
-@theme {
-  --color-sand-50: #fffdf8;
-  --color-sand-100: #f6f3ea;
-  --color-ink-900: #1e1d1a;
-  --color-ink-600: #645f55;
-  --color-fern-700: #12664f;
-  --font-body: "Georgia", "Times New Roman", serif;
-  --font-ui: "Trebuchet MS", "Segoe UI", sans-serif;
-  --radius-panel: 28px;
-  --shadow-panel: 0 24px 60px rgba(30, 29, 26, 0.08);
-}
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
-  font-family: var(--font-body);
-  background: radial-gradient(circle at top, var(--color-sand-50) 0%, var(--color-sand-100) 55%);
-  color: var(--color-ink-900);
+  min-height: 100%;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-accent-soft) 36%, transparent), transparent 34rem),
+    var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
 }
 
 body {
@@ -27,50 +21,7 @@ body {
   min-height: 100vh;
 }
 
-.page-shell {
-  width: min(960px, calc(100% - clamp(48px, 12vw, 144px)));
-  margin: 0 auto;
-  padding: clamp(48px, 12vw, 120px) 0;
-}
-
-.hero {
-  padding: clamp(32px, 6vw, 64px);
-  background: color-mix(in srgb, white 82%, var(--color-sand-50) 18%);
-  border: 1px solid rgba(30, 29, 26, 0.12);
-  border-radius: var(--radius-panel);
-  box-shadow: var(--shadow-panel);
-}
-
-.hero-eyebrow {
-  margin: 0 0 16px;
-  color: var(--color-fern-700);
-  font: 700 0.85rem/1 var(--font-ui);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.hero-title {
-  margin: 0;
-  max-width: 12ch;
-  font-size: clamp(3rem, 9vw, 6rem);
-  line-height: 0.94;
-}
-
-.hero-body {
-  max-width: 56ch;
-  margin: 24px 0 0;
-  color: var(--color-ink-600);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  line-height: 1.7;
-}
-
-@media (max-width: 640px) {
-  .page-shell {
-    width: min(100%, calc(100% - 32px));
-    padding: 32px 0 48px;
-  }
-
-  .hero {
-    padding: 24px;
-  }
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
 }

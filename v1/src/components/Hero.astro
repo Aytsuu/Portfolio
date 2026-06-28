@@ -12,8 +12,34 @@ const {
 } = Astro.props;
 ---
 
-<section class="hero">
-  <p class="hero-eyebrow">{eyebrow}</p>
-  <h1 class="hero-title">{title}</h1>
-  <p class="hero-body">{body}</p>
+<section class="grid gap-8 rounded-panel border border-rule bg-surface p-6 shadow-panel md:grid-cols-[minmax(0,1fr)_16rem] md:p-10">
+  <div>
+    <p class="text-xs font-semibold uppercase text-accent">{eyebrow}</p>
+    <h1 class="mt-4 max-w-3xl text-5xl font-semibold leading-none text-ink md:text-6xl">
+      {title}
+    </h1>
+    <p class="mt-6 max-w-2xl text-base leading-7 text-muted md:text-lg">
+      {body}
+    </p>
+  </div>
+
+  <div class="hidden rounded-panel border border-rule bg-canvas p-4 md:block" aria-hidden="true">
+    <div class="space-y-3">
+      <div class="rounded-md border border-rule bg-surface p-3">
+        <span class="block h-2 w-16 rounded-sm bg-accent"></span>
+        <span class="mt-3 block h-2 w-full rounded-sm bg-rule"></span>
+        <span class="mt-2 block h-2 w-3/4 rounded-sm bg-rule"></span>
+      </div>
+      <div class="rounded-md border border-rule bg-surface p-3">
+        <span class="block h-2 w-20 rounded-sm bg-signal"></span>
+        <span class="mt-3 block h-2 w-full rounded-sm bg-rule"></span>
+        <span class="mt-2 block h-2 w-2/3 rounded-sm bg-rule"></span>
+      </div>
+      <div class="rounded-md border border-rule bg-surface p-3">
+        <span class="block h-2 w-14 rounded-sm bg-accent-soft"></span>
+        <span class="mt-3 block h-2 w-full rounded-sm bg-rule"></span>
+        <span class="mt-2 block h-2 w-5/6 rounded-sm bg-rule"></span>
+      </div>
+    </div>
+  </div>
 </section>
