@@ -13,6 +13,7 @@ body {
   font-family: "Google Sans Flex", "Google Sans", "Google Sans Text",
     "Product Sans", sans-serif;
   line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 h1,
@@ -25,9 +26,9 @@ blockquote {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.05;
 }
 
 h2 {
@@ -72,28 +73,52 @@ figure {
   min-height: 100vh;
 }
 
+.portfolio-sidebar {
+  position: sticky;
+  top: 0;
+  overflow-x: auto;
+}
+
 .portfolio-sidebar,
 .portfolio-content {
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
 .portfolio-sidebar nav ul,
 .portfolio-footer nav ul {
-  padding-left: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  white-space: nowrap;
 }
 
 .portfolio-sidebar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 0.9375rem;
   font-weight: 500;
+  text-decoration: none;
 }
 
-.portfolio-main > section {
-  scroll-margin-block-start: 1rem;
+.portfolio-sidebar a::before {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  flex: 0 0 auto;
+}
+
+.portfolio-main>section {
+  scroll-margin-block-start: 5rem;
 }
 
 .portfolio-main {
   display: grid;
-  gap: 3rem;
+  gap: 3.5rem;
 }
 
 .portfolio-footer {
@@ -105,13 +130,13 @@ figure {
   gap: 1.25rem;
 }
 
-.section-block > :first-child,
-.content-item > :first-child {
+.section-block> :first-child,
+.content-item> :first-child {
   margin-top: 0;
 }
 
-.section-block > :last-child,
-.content-item > :last-child {
+.section-block> :last-child,
+.content-item> :last-child {
   margin-bottom: 0;
 }
 
@@ -119,6 +144,8 @@ figure {
   display: grid;
   gap: 1.5rem;
   margin: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
 .content-item {
@@ -129,6 +156,15 @@ figure {
 .media-block {
   display: grid;
   gap: 0.75rem;
+}
+
+#projects .media-block>img,
+#gallery .media-block>img {
+  width: 100%;
+}
+
+#recommendations .media-block>img {
+  width: min(10rem, 100%);
 }
 
 .contact-details {
@@ -142,9 +178,12 @@ figure {
 }
 
 .social-list {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
 .skill-groups {
@@ -165,18 +204,45 @@ figure {
   margin: 0;
 }
 
+.about-profile img {
+  width: min(12rem, 100%);
+}
+
 .about-heading {
   display: grid;
   gap: 0.5rem;
 }
 
-.about-heading > p:first-child {
+.about-heading>p:first-child {
   font-size: 0.9375rem;
   font-weight: 500;
 }
 
-.about-heading > :first-child {
+.about-heading> :first-child {
   margin-top: 0;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.125rem;
+  }
+
+  h2 {
+    font-size: 1.375rem;
+  }
+
+  .portfolio-sidebar,
+  .portfolio-content {
+    padding: 1rem;
+  }
+
+  .portfolio-main {
+    gap: 3rem;
+  }
+
+  .gallery-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media (min-width: 900px) {
@@ -187,14 +253,28 @@ figure {
 
   .portfolio-sidebar {
     position: sticky;
-    top: 0;
-    height: 100vh;
+    top: 2rem;
+    height: calc(100vh - 2rem);
+    overflow-x: visible;
     overflow: auto;
-    padding-left: 4rem;
+    padding-left: 6rem;
+  }
+
+  .portfolio-sidebar nav ul,
+  .portfolio-footer nav ul {
+    display: grid;
+    gap: 0.5rem;
+    padding-left: 0;
+    list-style: none;
+    white-space: normal;
   }
 
   .portfolio-content {
     max-width: 72rem;
+  }
+
+  .portfolio-main>section {
+    scroll-margin-block-start: 1rem;
   }
 
   .about-identity {
