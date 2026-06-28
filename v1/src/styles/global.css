@@ -605,6 +605,107 @@
       @apply left-0;
     }
   }
+
+  /* Resume Dialog Styles (Glassmorphic full-screen floating pages) */
+  .resume-dialog {
+    @apply fixed inset-0 m-0 h-screen w-screen max-h-none max-w-none border-none bg-transparent p-0 overflow-hidden;
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                overlay 300ms allow-discrete,
+                display 300ms allow-discrete;
+  }
+
+  .resume-dialog[open] {
+    display: flex;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @starting-style {
+    .resume-dialog[open] {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+
+  .resume-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 0;
+    transition: opacity 300ms ease, overlay 300ms allow-discrete, display 300ms allow-discrete;
+  }
+
+  .resume-dialog[open]::backdrop {
+    opacity: 1;
+  }
+
+  @starting-style {
+    .resume-dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  .dialog-floating-actions {
+    @apply fixed top-6 right-6 z-50 flex items-center gap-3;
+  }
+
+  .floating-btn {
+    @apply flex size-10 items-center justify-center rounded-full border border-white/10 bg-black/45 text-white backdrop-blur-md transition-all duration-200 cursor-pointer shadow-lg;
+  }
+
+  .floating-btn:hover {
+    @apply bg-black/70 border-white/30 scale-105;
+  }
+
+  .dialog-body {
+    @apply h-full w-full overflow-hidden;
+  }
+
+  /* PDF Resume Viewer styling */
+  .resume-paper-viewer {
+    @apply h-full w-full overflow-y-auto bg-transparent px-4 py-16 md:px-8 flex flex-col items-center;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  }
+
+  .resume-paper-viewer::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .resume-paper-viewer::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .resume-paper-viewer::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 9999px;
+  }
+
+  .resume-paper-viewer::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.45);
+  }
+
+  .resume-viewer-status {
+    @apply flex h-64 w-full items-center justify-center text-center font-mono text-xs font-medium uppercase tracking-wider text-white/70 animate-pulse;
+  }
+
+  .resume-paper-stack {
+    @apply flex flex-col items-center gap-8 w-full max-w-[54rem] mx-auto;
+  }
+
+  .resume-paper-page {
+    @apply relative overflow-hidden bg-white rounded-sm shadow-[0_16px_48px_rgba(0,0,0,0.35)] transition-all duration-300;
+  }
+
+  .resume-paper-page canvas {
+    @apply block max-w-full h-auto;
+  }
 }
 
 :root {

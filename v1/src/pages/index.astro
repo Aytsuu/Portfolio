@@ -11,8 +11,8 @@ import { projects } from "../dto/projects.dto";
 import { testimonials } from "../dto/recommendations";
 import { socials } from "../dto/socials.dto";
 
+import { ResumeViewer } from "../components/resume-viewer";
 import profilePicture from "../assets/my_profile_pic.png";
-import resumePdf from "../assets/resume/main.pdf?url";
 import meiroImage from "../assets/projects/meiro_project.png";
 import portfolioImage from "../assets/projects/portfolio_project_dark.png";
 import sanRoqueImage from "../assets/projects/sanroque_project.png";
@@ -158,6 +158,8 @@ const contact = {
   summary:
     "Full-stack software engineer focused on practical web systems, automation workflows, and AI-assisted product development.",
 };
+
+const resumePdf = "/assets/resume/main.pdf";
 ---
 
 <BaseLayout
@@ -256,9 +258,7 @@ const contact = {
           </ul>
 
           <div class="resume-link">
-            <a href={resumePdf} class="resume-btn" target="_blank"
-              >Download Resume PDF</a
-            >
+            <button id="open-resume-btn" class="resume-btn cursor-pointer">Open Resume</button>
           </div>
         </section>
 
@@ -383,6 +383,20 @@ const contact = {
     </div>
   </div>
 
+  <dialog id="resume-modal" class="resume-dialog">
+    <div class="dialog-floating-actions">
+      <a href={resumePdf} download="Paolo_Araneta_Resume.pdf" class="floating-btn download" aria-label="Download resume">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </a>
+      <button id="close-resume-btn" class="floating-btn close" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <ResumeViewer client:load src={resumePdf} title="Paolo Araneta Resume" />
+    </div>
+  </dialog>
+
   <script>
     // Scroll tracking for active navigation menu items
     const setupScrollSpy = () => {
@@ -449,8 +463,39 @@ const contact = {
       });
     };
 
+    const setupResumeModal = () => {
+      const openBtn = document.getElementById("open-resume-btn");
+      const closeBtn = document.getElementById("close-resume-btn");
+      const modal = document.getElementById("resume-modal");
+
+      if (openBtn && closeBtn && modal instanceof HTMLDialogElement) {
+        openBtn.addEventListener("click", () => {
+          modal.showModal();
+          document.body.style.overflow = "hidden";
+        });
+
+        const closeModal = () => {
+          modal.close();
+          document.body.style.overflow = "";
+        };
+
+        closeBtn.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        modal.addEventListener("close", () => {
+          document.body.style.overflow = "";
+        });
+      }
+    };
+
     document.addEventListener("DOMContentLoaded", () => {
       setupScrollSpy();
+      setupResumeModal();
     });
   </script>
 </BaseLayout>
