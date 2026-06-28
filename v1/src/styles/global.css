@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-canvas: #fbfbfa;
@@ -9,12 +14,93 @@
   --color-border: #eaeaea;
   --color-border-hover: #c2c2c2;
 
-  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: 'Geist Variable', sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-mono: "Geist Mono", "SF Mono", monospace;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-reverse: marquee-reverse var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee-vertical-reverse:
+    marquee-vertical-reverse var(--duration) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical-reverse {
+    from {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
 }
 
 @layer base {
+
   *,
   *::before,
   *::after {
@@ -27,6 +113,7 @@
     color: var(--color-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    @apply font-sans;
   }
 
   body {
@@ -34,6 +121,7 @@
     background-color: var(--color-canvas);
     line-height: 1.625;
     overflow-wrap: break-word;
+    @apply bg-background text-foreground;
   }
 
   h1,
@@ -98,11 +186,15 @@
   a:hover {
     opacity: 0.8;
   }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
 }
 
 @layer components {
   .portfolio-layout {
-    @apply grid min-h-screen grid-cols-1 lg:grid-cols-[18rem_minmax(0,1fr)];
+    @apply grid min-h-screen grid-cols-1;
   }
 
   .portfolio-sidebar {
@@ -121,7 +213,7 @@
     @apply grid scroll-mt-12 gap-6;
   }
 
-  .section-block > h2:first-child {
+  .section-block>h2:first-child {
     @apply mb-8 border-b border-border pb-3;
   }
 
@@ -137,13 +229,18 @@
 
   .portfolio-sidebar a::before {
     content: "";
-    @apply block h-px w-6 shrink-0 bg-muted transition-[width,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)];
+    @apply block h-px w-6 shrink-0 bg-muted;
+    transition: width 300ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: width;
     backface-visibility: hidden;
   }
 
   .portfolio-sidebar a span {
-    @apply inline-flex flex-col items-start font-normal text-secondary transition-[transform,font-weight,color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)];
+    @apply inline-flex flex-col items-start font-normal text-secondary;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+      font-weight 300ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 300ms cubic-bezier(0.16, 1, 0.3, 1);
     transform-origin: left center;
     will-change: transform;
     backface-visibility: hidden;
@@ -195,11 +292,7 @@
   }
 
   .about-profile img {
-    @apply size-full object-cover grayscale transition-[filter] duration-500;
-  }
-
-  .about-profile img:hover {
-    filter: grayscale(0.2);
+    @apply size-full object-cover;
   }
 
   .about-heading {
@@ -253,7 +346,8 @@
   }
 
   .resume-btn {
-    @apply inline-flex items-center justify-center rounded-md border border-primary bg-primary px-6 py-3 text-sm font-medium text-canvas transition-[background-color,transform] duration-200;
+    @apply inline-flex items-center justify-center rounded-md border border-primary bg-primary px-6 py-3 text-sm font-medium text-canvas;
+    transition: background-color 200ms ease, transform 200ms ease;
   }
 
   .resume-btn:hover {
@@ -314,14 +408,13 @@
   }
 
   .project-card,
-  .certificate-card,
-  .recommendation-card,
-  .skill-category {
-    @apply rounded-lg border border-border bg-surface transition-[border-color,box-shadow] duration-300;
+  .recommendation-card {
+    @apply rounded-lg border border-border bg-surface;
+    transition: border-color 300ms ease, box-shadow 300ms ease;
   }
 
   .project-card:hover,
-  .certificate-card:hover {
+  .project-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     @apply border-border-hover;
   }
@@ -335,13 +428,11 @@
   }
 
   .project-media img {
-    @apply size-full object-cover transition-[filter,transform] duration-400;
-    filter: grayscale(1) contrast(1.05);
+    @apply size-full object-cover transition-transform duration-400;
   }
 
   .project-card:hover .project-media img {
     transform: scale(1.02);
-    filter: grayscale(0) contrast(1);
   }
 
   .project-info {
@@ -352,45 +443,56 @@
     @apply mt-auto self-start border-b border-primary pb-0.5 font-mono text-[0.8125rem] font-semibold;
   }
 
-  .skills-container {
-    @apply grid grid-cols-1 gap-8 lg:grid-cols-2;
+  .skills-story {
+    @apply grid gap-5;
   }
 
-  .skill-category {
-    @apply p-6;
+  .skills-story-grid {
+    @apply grid grid-cols-1 gap-5 lg:grid-cols-2;
   }
 
-  .skill-category h3 {
-    @apply mb-4 border-b border-border pb-2 text-[1.1rem];
+  .skill-story-card {
+    @apply relative min-h-[24rem] overflow-hidden border border-border bg-canvas;
   }
 
-  .skill-tags {
-    @apply flex list-none flex-wrap gap-2 p-0;
+  .skill-visual {
+    @apply absolute inset-0 overflow-hidden p-8;
   }
 
-  .skill-tags li {
-    @apply rounded-[4px] border border-border bg-canvas px-3 py-1.5 font-mono text-[0.8125rem] text-primary;
+  .skill-story-overlay {
+    @apply absolute bottom-5 left-5 z-[2] bg-primary px-4 py-3;
   }
 
-  .certificates-grid {
-    @apply grid grid-cols-1 gap-6 p-0 lg:grid-cols-4;
+  .skill-story-overlay h3 {
+    @apply font-mono text-sm font-semibold uppercase tracking-[0.08em] text-canvas;
   }
 
-  .certificate-card {
-    @apply flex flex-col justify-between gap-5 p-6;
+  .skill-beam-visual {
+    @apply relative h-full min-h-[20rem] w-full;
   }
 
-  .certificate-card h3 {
-    @apply text-[1.05rem] leading-[1.4] tracking-[-0.01em];
+  .skill-beam-layout {
+    @apply relative z-[1] grid h-full grid-cols-[1fr_auto_1fr] items-center gap-5;
   }
 
-  .certificate-subtitle,
+  .skill-beam-column {
+    @apply flex h-full flex-col justify-between py-4;
+  }
+
+  .skill-beam-column:last-child {
+    @apply items-end;
+  }
+
+  .skill-beam-node {
+    @apply z-[1] grid min-h-12 min-w-20 place-items-center border border-primary bg-surface px-3 font-mono text-xs font-medium text-primary;
+  }
+
+  .skill-beam-node-primary {
+    @apply min-h-18 min-w-24 bg-primary text-canvas;
+  }
+
   .recommendation-title {
     @apply mt-1 font-mono text-xs text-muted;
-  }
-
-  .certificate-link {
-    @apply mt-auto self-start border-b border-primary pb-0.5 font-mono text-xs font-semibold text-primary;
   }
 
   .recommendations-list {
@@ -410,7 +512,7 @@
   }
 
   .recommendation-avatar img {
-    @apply size-full object-cover grayscale;
+    @apply size-full object-cover;
   }
 
   .recommendation-details {
@@ -430,25 +532,11 @@
     @apply absolute -top-2 -left-4 text-[2rem] leading-none opacity-20;
   }
 
-  .gallery-grid {
-    @apply grid list-none grid-cols-[repeat(auto-fill,minmax(14rem,1fr))] gap-6 p-0 lg:grid-cols-3;
-  }
-
-  .gallery-card {
-    @apply relative aspect-square overflow-hidden rounded-lg border border-border bg-canvas;
-  }
-
-  .gallery-card img {
-    @apply size-full object-cover transition-[filter,transform] duration-400;
-    filter: grayscale(1) contrast(1.05);
-  }
-
-  .gallery-card:hover img {
-    transform: scale(1.05);
-    filter: grayscale(0) contrast(1);
-  }
-
   @media (min-width: 900px) {
+    .portfolio-layout {
+      grid-template-columns: 18rem minmax(0, 1fr);
+    }
+
     .experience-timeline::before {
       transform: translateX(-50%);
     }
@@ -490,4 +578,73 @@
       @apply left-0;
     }
   }
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }

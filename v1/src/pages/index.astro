@@ -1,11 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { CertificateMarquee } from "../components/certificate-marquee";
+import { GalleryGrid } from "../components/gallery-grid";
+import { RecommendationCard } from "../components/recommendation-card";
+import { techStacks } from "../dto/tech-stacks.dto";
 import { certificates } from "../dto/certificates.dto";
 import { experiences } from "../dto/experiences.dto";
 import { projects } from "../dto/projects.dto";
 import { testimonials } from "../dto/recommendations";
 import { socials } from "../dto/socials.dto";
-import { techStacks } from "../dto/tech-stacks.dto";
 
 import profilePicture from "../assets/my_profile_pic.png";
 import resumePdf from "../assets/resume/main.pdf?url";
@@ -46,6 +49,89 @@ const certificateFiles = import.meta.glob<string>("../assets/certificates/*", {
   import: "default",
   query: "?url",
 });
+
+const certificatePreviewImages = import.meta.glob<string>(
+  "../assets/certificates/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    import: "default",
+    query: "?url",
+  },
+);
+
+const certificatePreviewSources: Record<string, string | undefined> = {
+  "2024 NASA International Space Apps Challenge":
+    certificatePreviewImages[
+      "../assets/certificates/2024 NASA Space Apps Challenge.png"
+    ],
+  "2025 NASA International Space Apps Challenge":
+    certificatePreviewImages[
+      "../assets/certificates/2025 NASA Space Apps Challenge.png"
+    ],
+  "DevFest Cebu 2025":
+    certificatePreviewImages["../assets/certificates/Devfest Cebu 2025.png"],
+  "AI Ready ASEAN":
+    certificatePreviewImages["../assets/certificates/AI READY ASEAN.png"],
+  "ASEAN AI Hackathon 2026::Passage to ASEAN (P2A) Secretariat":
+    certificatePreviewImages[
+      "../assets/certificates/ASEAN AI Hackathon 2026.png"
+    ],
+  "ASEAN AI Hackathon 2026::Mapua Malayan Colleges Laguna":
+    certificatePreviewImages[
+      "../assets/certificates/ASEAN AI - Mapua Malayan Colleges Laguna.png"
+    ],
+  "AWS AI Practitioner Challenge":
+    certificatePreviewImages[
+      "../assets/certificates/AWS AI Practitioner Challenge.png"
+    ],
+  "Build with AI Cebu 2026":
+    certificatePreviewImages[
+      "../assets/certificates/Build with AI Cebu 2026.png"
+    ],
+  "Data Analytics Fundamentals":
+    certificatePreviewImages[
+      "../assets/certificates/Data Analytics Fundamentals.png"
+    ],
+  "Google AI Professional":
+    certificatePreviewImages[
+      "../assets/certificates/Google AI Professional.png"
+    ],
+  "IBM Dev Day Bob Edition":
+    certificatePreviewImages[
+      "../assets/certificates/IBM Dev Day Bob Edition.png"
+    ],
+  "Reply AI Agent Challenge":
+    certificatePreviewImages[
+      "../assets/certificates/Reply AI Agent Challenge.png"
+    ],
+};
+
+const marqueeCertificates = certificates
+  .map((certificate) => {
+    const href =
+      certificateFiles[`../assets/certificates/${certificate.fileName}`];
+    const imageSrc =
+      certificatePreviewSources[
+        `${certificate.title}::${certificate.issuer}`
+      ] ?? certificatePreviewSources[certificate.title];
+
+    return {
+      title: certificate.title,
+      issuer: certificate.issuer,
+      href,
+      imageSrc,
+    };
+  })
+  .filter(
+    (
+      certificate,
+    ): certificate is {
+      title: string;
+      issuer: string;
+      href: string;
+      imageSrc: string;
+    } => Boolean(certificate.imageSrc),
+  );
 
 const galleryImages = Object.entries(
   import.meta.glob<{ default: { src: string } }>(
@@ -278,35 +364,10 @@ const contact = {
           aria-labelledby="certificates-heading"
         >
           <h2 id="certificates-heading">Certificates</h2>
-          <div class="certificates-grid">
-            {
-              certificates.map((certificate) => {
-                const href =
-                  certificateFiles[
-                    `../assets/certificates/${certificate.fileName}`
-                  ];
-
-                return (
-                  <article class="certificate-card">
-                    <div>
-                      <h3>{certificate.title}</h3>
-                      <p class="certificate-subtitle">{certificate.issuer}</p>
-                    </div>
-                    {href && (
-                      <a
-                        href={href}
-                        class="certificate-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        View certificate →
-                      </a>
-                    )}
-                  </article>
-                );
-              })
-            }
-          </div>
+          <CertificateMarquee
+            client:visible
+            certificates={marqueeCertificates}
+          />
         </section>
 
         <section
@@ -318,29 +379,13 @@ const contact = {
           <div class="recommendations-list">
             {
               testimonials.map((recommendation) => (
-                <article class="recommendation-card">
-                  <blockquote class="recommendation-quote">
-                    <p>{recommendation.testimonial}</p>
-                  </blockquote>
-                  <div class="recommendation-author">
-                    {testimonialImageSources[recommendation.imageURI] && (
-                      <div class="recommendation-avatar">
-                        <img
-                          src={testimonialImageSources[recommendation.imageURI]}
-                          alt={`${recommendation.name} profile photo`}
-                        />
-                      </div>
-                    )}
-                    <div class="recommendation-details">
-                      <span class="recommendation-name">
-                        {recommendation.name}
-                      </span>
-                      <span class="recommendation-title">
-                        {recommendation.company}
-                      </span>
-                    </div>
-                  </div>
-                </article>
+                <RecommendationCard
+                  client:load
+                  testimonial={recommendation.testimonial}
+                  name={recommendation.name}
+                  company={recommendation.company}
+                  imageSrc={testimonialImageSources[recommendation.imageURI]}
+                />
               ))
             }
           </div>
@@ -352,15 +397,7 @@ const contact = {
           aria-labelledby="gallery-heading"
         >
           <h2 id="gallery-heading">Gallery</h2>
-          <ul class="gallery-grid">
-            {
-              galleryImages.map((image) => (
-                <li class="gallery-card">
-                  <img src={image.src} alt={image.alt} />
-                </li>
-              ))
-            }
-          </ul>
+          <GalleryGrid client:load images={galleryImages} />
         </section>
       </main>
     </div>
