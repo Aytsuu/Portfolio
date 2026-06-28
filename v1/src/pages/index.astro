@@ -37,9 +37,12 @@ const certificateFiles = import.meta.glob<string>("../assets/certificates/*", {
 });
 
 const galleryImages = Object.entries(
-  import.meta.glob<{ default: { src: string } }>("../assets/gallery/*.{jpg,jpeg,png,webp}", {
-    eager: true,
-  })
+  import.meta.glob<{ default: { src: string } }>(
+    "../assets/gallery/*.{jpg,jpeg,png,webp}",
+    {
+      eager: true,
+    },
+  ),
 ).map(([path, module]) => {
   const fileName = path.split("/").pop() ?? "Gallery image";
 
@@ -68,7 +71,7 @@ const education = {
 ---
 
 <BaseLayout
-  title={`${contact.name} Portfolio`}
+  title={`${contact.name}`}
   description="Semantic content structure for Paolo Araneta's personal portfolio."
 >
   <header>
@@ -101,12 +104,14 @@ const education = {
     <section id="about" aria-labelledby="about-heading">
       <h2 id="about-heading">About</h2>
       <p>
-        Paolo Araneta is a software engineer and BS Information Technology student building web systems across frontend,
-        backend, cloud, and AI-assisted workflows.
+        Paolo Araneta is a software engineer and BS Information Technology
+        student building web systems across frontend, backend, cloud, and
+        AI-assisted workflows.
       </p>
       <p>
-        This page is intentionally unstyled. It exists to define the portfolio's information architecture before visual
-        design, interaction design, and animation work begin.
+        This page is intentionally unstyled. It exists to define the portfolio's
+        information architecture before visual design, interaction design, and
+        animation work begin.
       </p>
       <p><a href={resumePdf}>View resume PDF</a></p>
     </section>
@@ -117,12 +122,20 @@ const education = {
         <p>{contact.name}</p>
         <p>{contact.location}</p>
         <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
-        <p><a href={`tel:${contact.phone.replaceAll(/[\s()-]/g, "")}`}>{contact.phone}</a></p>
+        <p>
+          <a href={`tel:${contact.phone.replaceAll(/[\s()-]/g, "")}`}
+            >{contact.phone}</a
+          >
+        </p>
       </address>
       <ul>
-        {socials.map((social) => (
-          <li><a href={social.link}>{social.type}</a></li>
-        ))}
+        {
+          socials.map((social) => (
+            <li>
+              <a href={social.link}>{social.type}</a>
+            </li>
+          ))
+        }
       </ul>
     </section>
 
@@ -139,128 +152,168 @@ const education = {
     <section id="experience" aria-labelledby="experience-heading">
       <h2 id="experience-heading">Experience</h2>
       <ol>
-        {experiences.map((experience) => (
-          <li>
-            <article>
-              <h3>{experience.title}</h3>
-              <p>{experience.experiencedAt}</p>
-              <p>{experience.year}</p>
-              {experience.location && <p>{experience.location}</p>}
-              {experience.highlights && (
-                <ul>
-                  {experience.highlights.map((highlight) => <li>{highlight}</li>)}
-                </ul>
-              )}
-            </article>
-          </li>
-        ))}
+        {
+          experiences.map((experience) => (
+            <li>
+              <article>
+                <h3>{experience.title}</h3>
+                <p>{experience.experiencedAt}</p>
+                <p>{experience.year}</p>
+                {experience.location && <p>{experience.location}</p>}
+                {experience.highlights && (
+                  <ul>
+                    {experience.highlights.map((highlight) => (
+                      <li>{highlight}</li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            </li>
+          ))
+        }
       </ol>
     </section>
 
     <section id="projects" aria-labelledby="projects-heading">
       <h2 id="projects-heading">Projects</h2>
       <ol>
-        {projects.map((project) => (
-          <li>
-            <article>
-              <h3>{project.name}</h3>
-              <p>{project.description}</p>
-              {projectImageSources[project.imageURI] && (
-                <figure>
-                  <img src={projectImageSources[project.imageURI]} alt={`${project.name} project screenshot`} />
-                  <figcaption>{project.name} project visual reference</figcaption>
-                </figure>
-              )}
-              <h4>Technology used</h4>
-              <ul>
-                {project.techStack.map((technology) => <li>{technology}</li>)}
-              </ul>
-              {project.link && <p><a href={project.link}>Visit project</a></p>}
-            </article>
-          </li>
-        ))}
+        {
+          projects.map((project) => (
+            <li>
+              <article>
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+                {projectImageSources[project.imageURI] && (
+                  <figure>
+                    <img
+                      src={projectImageSources[project.imageURI]}
+                      alt={`${project.name} project screenshot`}
+                    />
+                    <figcaption>
+                      {project.name} project visual reference
+                    </figcaption>
+                  </figure>
+                )}
+                <h4>Technology used</h4>
+                <ul>
+                  {project.techStack.map((technology) => (
+                    <li>{technology}</li>
+                  ))}
+                </ul>
+                {project.link && (
+                  <p>
+                    <a href={project.link}>Visit project</a>
+                  </p>
+                )}
+              </article>
+            </li>
+          ))
+        }
       </ol>
     </section>
 
     <section id="skills" aria-labelledby="skills-heading">
       <h2 id="skills-heading">Skills</h2>
-      {techStacks.map((stack) => {
-        const headingId = `skill-${stack.type.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
+      {
+        techStacks.map((stack) => {
+          const headingId = `skill-${stack.type.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
 
-        return (
-          <section aria-labelledby={headingId}>
-            <h3 id={headingId}>{stack.type}</h3>
-            <ul>
-              {stack.items.map((item) => <li>{item}</li>)}
-            </ul>
-          </section>
-        );
-      })}
+          return (
+            <section aria-labelledby={headingId}>
+              <h3 id={headingId}>{stack.type}</h3>
+              <ul>
+                {stack.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </section>
+          );
+        })
+      }
     </section>
 
     <section id="certificates" aria-labelledby="certificates-heading">
       <h2 id="certificates-heading">Certificates</h2>
       <ol>
-        {certificates.map((certificate) => {
-          const href = certificateFiles[`../assets/certificates/${certificate.fileName}`];
+        {
+          certificates.map((certificate) => {
+            const href =
+              certificateFiles[
+                `../assets/certificates/${certificate.fileName}`
+              ];
 
-          return (
-            <li>
-              <article>
-                <h3>{certificate.title}</h3>
-                <p>{certificate.subtitle}</p>
-                {href && <p><a href={href}>View certificate</a></p>}
-              </article>
-            </li>
-          );
-        })}
+            return (
+              <li>
+                <article>
+                  <h3>{certificate.title}</h3>
+                  <p>{certificate.subtitle}</p>
+                  {href && (
+                    <p>
+                      <a href={href}>View certificate</a>
+                    </p>
+                  )}
+                </article>
+              </li>
+            );
+          })
+        }
       </ol>
     </section>
 
     <section id="recommendations" aria-labelledby="recommendations-heading">
       <h2 id="recommendations-heading">Recommendations</h2>
       <ol>
-        {testimonials.map((recommendation) => (
-          <li>
-            <figure>
-              {testimonialImageSources[recommendation.imageURI] && (
-                <img
-                  src={testimonialImageSources[recommendation.imageURI]}
-                  alt={`${recommendation.name} profile photo`}
-                />
-              )}
-              <blockquote>
-                <p>{recommendation.testimonial}</p>
-              </blockquote>
-              <figcaption>
-                <p>{recommendation.name}</p>
-                <p>{recommendation.company}</p>
-              </figcaption>
-            </figure>
-          </li>
-        ))}
+        {
+          testimonials.map((recommendation) => (
+            <li>
+              <figure>
+                {testimonialImageSources[recommendation.imageURI] && (
+                  <img
+                    src={testimonialImageSources[recommendation.imageURI]}
+                    alt={`${recommendation.name} profile photo`}
+                  />
+                )}
+                <blockquote>
+                  <p>{recommendation.testimonial}</p>
+                </blockquote>
+                <figcaption>
+                  <p>{recommendation.name}</p>
+                  <p>{recommendation.company}</p>
+                </figcaption>
+              </figure>
+            </li>
+          ))
+        }
       </ol>
     </section>
 
     <section id="gallery" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading">Gallery</h2>
-      <p>Uncurated image references available for future portfolio storytelling.</p>
+      <p>
+        Uncurated image references available for future portfolio storytelling.
+      </p>
       <ul>
-        {galleryImages.map((image) => (
-          <li>
-            <figure>
-              <img src={image.src} alt={image.alt} />
-              <figcaption>{image.alt}</figcaption>
-            </figure>
-          </li>
-        ))}
+        {
+          galleryImages.map((image) => (
+            <li>
+              <figure>
+                <img src={image.src} alt={image.alt} />
+                <figcaption>{image.alt}</figcaption>
+              </figure>
+            </li>
+          ))
+        }
       </ul>
     </section>
 
     <section id="contact" aria-labelledby="contact-heading">
       <h2 id="contact-heading">Contact</h2>
       <p>Email: <a href={`mailto:${contact.email}`}>{contact.email}</a></p>
-      <p>Phone: <a href={`tel:${contact.phone.replaceAll(/[\s()-]/g, "")}`}>{contact.phone}</a></p>
+      <p>
+        Phone: <a href={`tel:${contact.phone.replaceAll(/[\s()-]/g, "")}`}
+          >{contact.phone}</a
+        >
+      </p>
       <p>Resume: <a href={resumePdf}>Download resume</a></p>
     </section>
   </main>
@@ -269,9 +322,13 @@ const education = {
     <p>{contact.name}</p>
     <nav aria-label="Social links">
       <ul>
-        {socials.map((social) => (
-          <li><a href={social.link}>{social.type}</a></li>
-        ))}
+        {
+          socials.map((social) => (
+            <li>
+              <a href={social.link}>{social.type}</a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </footer>
