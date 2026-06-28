@@ -1,5 +1,5 @@
 ---
-import "../styles/layout.css";
+import "../styles/global.css";
 import profilePicture from "../assets/my_profile_pic.png";
 
 interface Props {
@@ -25,7 +25,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Instrument+Serif:ital,wght@0,400;0,400italic;1,400&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="bg-canvas text-primary">
+  <body class="bg-canvas text-primary font-sans antialiased">
     <slot />
   </body>
 </html>

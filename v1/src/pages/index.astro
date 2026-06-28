@@ -83,11 +83,13 @@ const contact = {
         <ul>
           <li>
             <a href="#about"
-              ><span data-text="Paolo Araneta">Paolo Araneta</span></a>
+              ><span data-text="Paolo Araneta">Paolo Araneta</span></a
+            >
           </li>
           <li>
             <a href="#experience"
-              ><span data-text="Experience">Experience</span></a>
+              ><span data-text="Experience">Experience</span></a
+            >
           </li>
           <li>
             <a href="#projects"><span data-text="Projects">Projects</span></a>
@@ -95,11 +97,13 @@ const contact = {
           <li><a href="#skills"><span data-text="Skills">Skills</span></a></li>
           <li>
             <a href="#certificates"
-              ><span data-text="Certificates">Certificates</span></a>
+              ><span data-text="Certificates">Certificates</span></a
+            >
           </li>
           <li>
             <a href="#recommendations"
-              ><span data-text="Recommendations">Recommendations</span></a>
+              ><span data-text="Recommendations">Recommendations</span></a
+            >
           </li>
           <li>
             <a href="#gallery"><span data-text="Gallery">Gallery</span></a>
@@ -254,10 +258,7 @@ const contact = {
                 const headingId = `skill-${stack.type.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
 
                 return (
-                  <section
-                    class="skill-category"
-                    aria-labelledby={headingId}
-                  >
+                  <section class="skill-category" aria-labelledby={headingId}>
                     <h3 id={headingId}>{stack.type}</h3>
                     <ul class="skill-tags">
                       {stack.items.map((item) => (
@@ -289,7 +290,7 @@ const contact = {
                   <article class="certificate-card">
                     <div>
                       <h3>{certificate.title}</h3>
-                      <p class="certificate-subtitle">{certificate.subtitle}</p>
+                      <p class="certificate-subtitle">{certificate.issuer}</p>
                     </div>
                     {href && (
                       <a
