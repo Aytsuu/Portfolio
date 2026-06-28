@@ -56,11 +56,7 @@ export const techStacks: props[] = [
   {
     type: "Developer Tools",
     items: ["Github", "Git", "VSCode", "Postman", "Trello", "Figma", "Canva"],
-  },
-  {
-    type: "No Code - Low Code",
-    items: ["WordPress"],
-  },
+  }
 ];
 
 export const techStacksHomePage: props[] = techStacks.map((stack) => ({
