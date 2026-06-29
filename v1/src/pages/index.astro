@@ -255,11 +255,30 @@ const resumePdf = "/assets/resume/main.pdf";
                 </li>
               ))
             }
+            <li>
+              <button
+                id="open-resume-btn"
+                class="cursor-pointer inline-flex items-center gap-2 rounded-[4px] border border-border bg-surface px-3 py-1.5 font-mono text-[0.8125rem] text-primary hover:border-border-hover hover:bg-canvas transition-colors duration-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-3.5"
+                  ><path
+                    d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+                  ></path><polyline points="14 2 14 8 20 8"></polyline></svg
+                >
+                <span>Resume</span>
+              </button>
+            </li>
           </ul>
-
-          <div class="resume-link">
-            <button id="open-resume-btn" class="resume-btn cursor-pointer">Open Resume</button>
-          </div>
         </section>
 
         <section
@@ -269,6 +288,7 @@ const resumePdf = "/assets/resume/main.pdf";
         >
           <h2 id="experience-heading">Experience</h2>
           <ol class="experience-timeline">
+            <div class="timeline-line"></div>
             {
               experiences.map((experience) => (
                 <li class="experience-timeline-item">
@@ -322,10 +342,12 @@ const resumePdf = "/assets/resume/main.pdf";
                 stroke-linejoin="round"
                 class="size-6 animate-pulse"
               >
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                ></path>
               </svg>
             </div>
-            <p class="placeholder-text relative z-10">Building in progress</p>
+            <p class="placeholder-text relative z-10">Under construction</p>
           </div>
         </section>
 
@@ -385,11 +407,53 @@ const resumePdf = "/assets/resume/main.pdf";
 
   <dialog id="resume-modal" class="resume-dialog">
     <div class="dialog-floating-actions">
-      <a href={resumePdf} download="Paolo_Araneta_Resume.pdf" class="floating-btn download" aria-label="Download resume">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <a
+        href={resumePdf}
+        download="Paolo_Araneta_Resume.pdf"
+        class="floating-btn download"
+        aria-label="Download resume"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4.5"
+          ><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline
+            points="7 10 12 15 17 10"></polyline><line
+            x1="12"
+            y1="15"
+            x2="12"
+            y2="3"></line></svg
+        >
       </a>
-      <button id="close-resume-btn" class="floating-btn close" aria-label="Close modal">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <button
+        id="close-resume-btn"
+        class="floating-btn close"
+        aria-label="Close modal"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4.5"
+          ><line x1="18" y1="6" x2="6" y2="18"></line><line
+            x1="6"
+            y1="6"
+            x2="18"
+            y2="18"></line></svg
+        >
       </button>
     </div>
     <div class="dialog-body">
@@ -463,6 +527,25 @@ const resumePdf = "/assets/resume/main.pdf";
       });
     };
 
+    const setupTimelineAnimation = () => {
+      const timeline = document.querySelector(".experience-timeline");
+      if (timeline) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                timeline.classList.add("animate");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+
+        observer.observe(timeline);
+      }
+    };
+
     const setupResumeModal = () => {
       const openBtn = document.getElementById("open-resume-btn");
       const closeBtn = document.getElementById("close-resume-btn");
@@ -496,6 +579,7 @@ const resumePdf = "/assets/resume/main.pdf";
     document.addEventListener("DOMContentLoaded", () => {
       setupScrollSpy();
       setupResumeModal();
+      setupTimelineAnimation();
     });
   </script>
 </BaseLayout>

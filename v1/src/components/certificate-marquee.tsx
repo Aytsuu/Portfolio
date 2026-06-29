@@ -58,7 +58,7 @@ export function CertificateMarquee({
   const { firstRow, secondRow } = splitCertificates(certificates)
 
   return (
-    <div className="relative flex w-full flex-col gap-4 overflow-hidden py-2">
+    <div className="relative flex w-full flex-col gap-4 overflow-hidden py-2 [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)]">
       <Marquee pauseOnHover className="[--duration:28s]">
         {firstRow.map((certificate) => (
           <CertificateCard

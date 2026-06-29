@@ -362,30 +362,21 @@
     filter: grayscale(1) brightness(0.2);
   }
 
-  .resume-link {
-    @apply mt-6 inline-block;
-  }
 
-  .resume-btn {
-    @apply inline-flex items-center justify-center rounded-md border border-primary bg-primary px-6 py-3 text-sm font-medium text-canvas;
-    transition: background-color 200ms ease, transform 200ms ease;
-  }
-
-  .resume-btn:hover {
-    @apply bg-[#333333] text-surface opacity-100;
-  }
-
-  .resume-btn:active {
-    transform: scale(0.98);
-  }
 
   .experience-timeline {
     @apply relative m-0 flex list-none flex-col gap-12 p-0;
   }
 
-  .experience-timeline::before {
-    content: "";
+  .timeline-line {
     @apply absolute top-0 bottom-0 left-2.5 w-px bg-border lg:left-1/2;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .experience-timeline.animate .timeline-line {
+    transform: scaleY(1);
   }
 
   .experience-timeline-item {
@@ -395,17 +386,54 @@
   .experience-timeline-item::before {
     content: "";
     @apply absolute top-3.5 left-2.5 z-[1] h-px w-7 bg-border lg:w-14;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .experience-timeline.animate .experience-timeline-item::before {
+    transform: scaleX(1);
   }
 
   .experience-timeline-item::after {
     content: "";
     @apply absolute top-3.5 left-2.5 z-[2] h-[10px] w-[10px] rounded-full border-2 border-canvas bg-primary;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .experience-timeline.animate .experience-timeline-item::after {
+    transform: translate(-50%, -50%) scale(1);
   }
 
   .experience-timeline-item article {
     @apply grid gap-3.5 pb-2;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   }
+
+  .experience-timeline.animate .experience-timeline-item article {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered delays for Down-to-Up timeline animation */
+  /* index 2 (bottom item: BS Information Technology) starts first */
+  .experience-timeline-item:nth-child(3)::before { transition-delay: 0.3s; }
+  .experience-timeline-item:nth-child(3)::after { transition-delay: 0.2s; }
+  .experience-timeline-item:nth-child(3) article { transition-delay: 0.4s; }
+
+  /* index 1 (middle item: Technical Training Instructor) starts second */
+  .experience-timeline-item:nth-child(2)::before { transition-delay: 0.8s; }
+  .experience-timeline-item:nth-child(2)::after { transition-delay: 0.7s; }
+  .experience-timeline-item:nth-child(2) article { transition-delay: 0.9s; }
+
+  /* index 0 (top item: Software Engineer Intern) starts last */
+  .experience-timeline-item:nth-child(1)::before { transition-delay: 1.3s; }
+  .experience-timeline-item:nth-child(1)::after { transition-delay: 1.2s; }
+  .experience-timeline-item:nth-child(1) article { transition-delay: 1.4s; }
 
   .experience-meta {
     @apply mt-1 grid gap-1 font-mono text-[0.8125rem] text-muted;
@@ -564,8 +592,12 @@
       grid-template-columns: 18rem minmax(0, 1fr);
     }
 
-    .experience-timeline::before {
-      transform: translateX(-50%);
+    .timeline-line {
+      transform: translateX(-50%) scaleY(0);
+    }
+
+    .experience-timeline.animate .timeline-line {
+      transform: translateX(-50%) scaleY(1);
     }
 
     .experience-timeline-item:nth-child(odd) {
@@ -590,19 +622,30 @@
 
     .experience-timeline-item:nth-child(odd)::before {
       @apply left-auto right-0;
+      transform-origin: right;
     }
 
     .experience-timeline-item:nth-child(even)::before {
       @apply left-0 right-auto;
+      transform-origin: left;
     }
 
     .experience-timeline-item:nth-child(odd)::after {
       @apply left-auto right-0;
-      transform: translate(50%, -50%);
+      transform: translate(50%, -50%) scale(0);
+    }
+
+    .experience-timeline.animate .experience-timeline-item:nth-child(odd)::after {
+      transform: translate(50%, -50%) scale(1);
     }
 
     .experience-timeline-item:nth-child(even)::after {
       @apply left-0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    .experience-timeline.animate .experience-timeline-item:nth-child(even)::after {
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 

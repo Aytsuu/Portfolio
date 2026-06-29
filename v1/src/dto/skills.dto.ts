@@ -14,8 +14,8 @@ export const skills: Skill[] = [
   },
   {
     title: "API Integration",
-    description: "Crafting and consuming robust RESTful APIs, GraphQL endpoints, and webhook architectures.",
-    items: ["REST", "Webhooks", "WebSockets", "API Gateways"],
+    description: "Crafting and consuming robust RESTful APIs, endpoints, and websocket architectures.",
+    items: ["REST", "WebSockets", "API Gateways"],
     icon: "plug"
   },
   {
@@ -44,7 +44,7 @@ export const skills: Skill[] = [
   },
   {
     title: "Clean UI",
-    description: "Building pixel-perfect, accessible (WCAG), and animation-rich minimalist user interfaces.",
+    description: "Building pixel-perfect, accessible, and animation-rich minimalist user interfaces.",
     items: ["Design Systems", "Accessibility (WCAG)", "Shadcn", "MagicUI"],
     icon: "palette"
   },
