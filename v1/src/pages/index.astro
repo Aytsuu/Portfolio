@@ -10,107 +10,43 @@ import { experiences } from "../dto/experiences.dto";
 import { projects } from "../dto/projects.dto";
 import { testimonials } from "../dto/recommendations";
 import { socials } from "../dto/socials.dto";
-
+import fs from "node:fs";
+import path from "node:path";
 import { ResumeViewer } from "../components/resume-viewer";
-import profilePicture from "../assets/my_profile_pic.png";
-import meiroImage from "../assets/projects/meiro_project.png";
-import portfolioImage from "../assets/projects/portfolio_project_dark.png";
-import sanRoqueImage from "../assets/projects/sanroque_project.png";
-import securadoImage from "../assets/projects/securado_project.png";
-import bellImage from "../assets/testimonials/bell.jpg";
-import narcisanImage from "../assets/testimonials/narcisan.jpg";
-import suzetteImage from "../assets/testimonials/suzette.png";
-import facebookIcon from "../assets/icons/facebook-dark.svg";
-import githubIcon from "../assets/icons/github-dark.svg";
-import instagramIcon from "../assets/icons/instagram-dark.svg";
-import linkedinIcon from "../assets/icons/linkedin-dark.svg";
-
-const projectImageSources: Record<string, string> = {
-  "/assets/projects/meiro_project.png": meiroImage.src,
-  "/assets/projects/portfolio_project_dark.png": portfolioImage.src,
-  "/assets/projects/sanroque_project.png": sanRoqueImage.src,
-  "/assets/projects/securado_project.png": securadoImage.src,
-};
-
-const testimonialImageSources: Record<string, string> = {
-  "/assets/testimonials/bell.jpg": bellImage.src,
-  "/assets/testimonials/narcisan.jpg": narcisanImage.src,
-  "/assets/testimonials/suzette.png": suzetteImage.src,
-};
-
-const socialIconSources: Record<string, string> = {
-  Facebook: facebookIcon.src,
-  Github: githubIcon.src,
-  Instagram: instagramIcon.src,
-  LinkedIn: linkedinIcon.src,
-};
-
-const certificateFiles = import.meta.glob<string>("../assets/certificates/*", {
-  eager: true,
-  import: "default",
-  query: "?url",
-});
-
-const certificatePreviewImages = import.meta.glob<string>(
-  "../assets/certificates/*.{png,jpg,jpeg,webp}",
-  {
-    eager: true,
-    import: "default",
-    query: "?url",
-  },
-);
 
 const certificatePreviewSources: Record<string, string | undefined> = {
   "2024 NASA International Space Apps Challenge":
-    certificatePreviewImages[
-      "../assets/certificates/2024 NASA Space Apps Challenge.png"
-    ],
+    "/assets/certificates/2024 NASA Space Apps Challenge.png",
   "2025 NASA International Space Apps Challenge":
-    certificatePreviewImages[
-      "../assets/certificates/2025 NASA Space Apps Challenge.png"
-    ],
+    "/assets/certificates/2025 NASA Space Apps Challenge.png",
   "DevFest Cebu 2025":
-    certificatePreviewImages["../assets/certificates/Devfest Cebu 2025.png"],
+    "/assets/certificates/Devfest Cebu 2025.png",
   "AI Ready ASEAN":
-    certificatePreviewImages["../assets/certificates/AI READY ASEAN.png"],
+    "/assets/certificates/AI READY ASEAN.png",
   "ASEAN AI Hackathon 2026::Passage to ASEAN (P2A) Secretariat":
-    certificatePreviewImages[
-      "../assets/certificates/ASEAN AI Hackathon 2026.png"
-    ],
+    "/assets/certificates/ASEAN AI Hackathon 2026.png",
   "ASEAN AI Hackathon 2026::Mapua Malayan Colleges Laguna":
-    certificatePreviewImages[
-      "../assets/certificates/ASEAN AI - Mapua Malayan Colleges Laguna.png"
-    ],
+    "/assets/certificates/ASEAN AI - Mapua Malayan Colleges Laguna.png",
   "AWS AI Practitioner Challenge":
-    certificatePreviewImages[
-      "../assets/certificates/AWS AI Practitioner Challenge.png"
-    ],
+    "/assets/certificates/AWS AI Practitioner Challenge.png",
   "Build with AI Cebu 2026":
-    certificatePreviewImages[
-      "../assets/certificates/Build with AI Cebu 2026.png"
-    ],
+    "/assets/certificates/Build with AI Cebu 2026.png",
   "Data Analytics Fundamentals":
-    certificatePreviewImages[
-      "../assets/certificates/Data Analytics Fundamentals.png"
-    ],
+    "/assets/certificates/Data Analytics Fundamentals.png",
   "Google AI Professional":
-    certificatePreviewImages[
-      "../assets/certificates/Google AI Professional.png"
-    ],
+    "/assets/certificates/Google AI Professional.png",
   "IBM Dev Day Bob Edition":
-    certificatePreviewImages[
-      "../assets/certificates/IBM Dev Day Bob Edition.png"
-    ],
+    "/assets/certificates/IBM Dev Day Bob Edition.png",
   "Reply AI Agent Challenge":
-    certificatePreviewImages[
-      "../assets/certificates/Reply AI Agent Challenge.png"
-    ],
+    "/assets/certificates/Reply AI Agent Challenge.png",
 };
 
 const marqueeCertificates = certificates
   .map((certificate) => {
-    const href =
-      certificateFiles[`../assets/certificates/${certificate.fileName}`];
+    const filePath = `/assets/certificates/${certificate.fileName}`;
+    const fileExists = fs.existsSync(path.resolve(`./public${filePath}`));
+    const href = fileExists ? filePath : undefined;
+
     const imageSrc =
       certificatePreviewSources[
         `${certificate.title}::${certificate.issuer}`
@@ -129,26 +65,20 @@ const marqueeCertificates = certificates
     ): certificate is {
       title: string;
       issuer: string;
-      href: string;
+      href: string | undefined;
       imageSrc: string;
     } => Boolean(certificate.imageSrc),
   );
 
-const galleryImages = Object.entries(
-  import.meta.glob<{ default: { src: string } }>(
-    "../assets/gallery/*.{jpg,jpeg,png,webp}",
-    {
-      eager: true,
-    },
-  ),
-).map(([path, module]) => {
-  const fileName = path.split("/").pop() ?? "Gallery image";
-
-  return {
-    src: module.default.src,
-    alt: fileName.replace(/\.[^.]+$/, "").replace(/[-_]/g, " "),
-  };
-});
+const galleryDir = path.resolve("./public/assets/gallery");
+const galleryImages = fs.existsSync(galleryDir)
+  ? fs.readdirSync(galleryDir)
+      .filter((file) => /\.(jpg|jpeg|png|webp)$/i.test(file))
+      .map((file) => ({
+        src: `/assets/gallery/${file}`,
+        alt: file.replace(/\.[^.]+$/, "").replace(/[-_]/g, " "),
+      }))
+  : [];
 const contact = {
   name: "Paolo Araneta",
   role: "Software Engineer",
@@ -211,7 +141,7 @@ const resumePdf = "/assets/resume/main.pdf";
           <div class="about-identity">
             <figure class="about-profile">
               <img
-                src={profilePicture.src}
+                src="/assets/my_profile_pic.png"
                 alt={`${contact.name} profile portrait`}
               />
             </figure>
@@ -243,13 +173,11 @@ const resumePdf = "/assets/resume/main.pdf";
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {socialIconSources[social.type] && (
-                      <img
-                        src={socialIconSources[social.type]}
-                        alt=""
-                        aria-hidden="true"
-                      />
-                    )}
+                    <img
+                      src={`/assets/icons/${social.type.toLowerCase()}-dark.svg`}
+                      alt=""
+                      aria-hidden="true"
+                    />
                     <span>{social.type}</span>
                   </a>
                 </li>
@@ -386,7 +314,7 @@ const resumePdf = "/assets/resume/main.pdf";
                   testimonial={recommendation.testimonial}
                   name={recommendation.name}
                   company={recommendation.company}
-                  imageSrc={testimonialImageSources[recommendation.imageURI]}
+                  imageSrc={recommendation.imageURI}
                 />
               ))
             }
