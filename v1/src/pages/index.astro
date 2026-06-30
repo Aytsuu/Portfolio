@@ -19,26 +19,22 @@ const certificatePreviewSources: Record<string, string | undefined> = {
     "/assets/certificates/2024 NASA Space Apps Challenge.png",
   "2025 NASA International Space Apps Challenge":
     "/assets/certificates/2025 NASA Space Apps Challenge.png",
-  "DevFest Cebu 2025":
-    "/assets/certificates/Devfest Cebu 2025.png",
-  "AI Ready ASEAN":
-    "/assets/certificates/AI READY ASEAN.png",
+  "DevFest Cebu 2025": "/assets/certificates/Devfest Cebu 2025.png",
+  "AI Ready ASEAN": "/assets/certificates/AI READY ASEAN.png",
   "ASEAN AI Hackathon 2026::Passage to ASEAN (P2A) Secretariat":
     "/assets/certificates/ASEAN AI Hackathon 2026.png",
   "ASEAN AI Hackathon 2026::Mapua Malayan Colleges Laguna":
     "/assets/certificates/ASEAN AI - Mapua Malayan Colleges Laguna.png",
   "AWS AI Practitioner Challenge":
     "/assets/certificates/AWS AI Practitioner Challenge.png",
-  "Build with AI Cebu 2026":
-    "/assets/certificates/Build with AI Cebu 2026.png",
+  "Build with AI Cebu 2026": "/assets/certificates/Build with AI Cebu 2026.png",
   "Data Analytics Fundamentals":
     "/assets/certificates/Data Analytics Fundamentals.png",
-  "Google AI Professional":
-    "/assets/certificates/Google AI Professional.png",
-  "IBM Dev Day Bob Edition":
-    "/assets/certificates/IBM Dev Day Bob Edition.png",
+  "Google AI Professional": "/assets/certificates/Google AI Professional.png",
+  "IBM Dev Day Bob Edition": "/assets/certificates/IBM Dev Day Bob Edition.png",
   "Reply AI Agent Challenge":
     "/assets/certificates/Reply AI Agent Challenge.png",
+  "USAII Global AI Hackathon 2026": "/assets/certificates/USAII Finalist.png",
 };
 
 const marqueeCertificates = certificates
@@ -72,7 +68,8 @@ const marqueeCertificates = certificates
 
 const galleryDir = path.resolve("./public/assets/gallery");
 const galleryImages = fs.existsSync(galleryDir)
-  ? fs.readdirSync(galleryDir)
+  ? fs
+      .readdirSync(galleryDir)
       .filter((file) => /\.(jpg|jpeg|png|webp)$/i.test(file))
       .map((file) => ({
         src: `/assets/gallery/${file}`,

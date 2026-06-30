@@ -1,6 +1,6 @@
-PWD d:\nextjs_project\portfolio\v1\public\resume
+PWD d:\Portfolio\v1\public\assets\resume
 INPUT C:\Users\patty\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\nextjs_project\portfolio\v1\public\resume\main.tex
+INPUT d:\Portfolio\v1\public\assets\resume\main.tex
 OUTPUT main.log
 INPUT D:\MikTeX\tex\latex\base\article.cls
 INPUT D:\MikTeX\tex\latex\base\article.cls

@@ -39,3 +39,27 @@ services.
 
 **Face Recognition Profiling | *React, Flask, NoSQL***
 - Developed a biometric profiling application using the FaceNet model for high-accuracy face recognition and Flask-SocketIO to enable real-time, bidirectional communication.
+
+## Hackathons & Competitions
+**Southeast Asia Innovation Competition** - Participant
+- Proposed a wellness-centric workspace planning platform that transforms room photos into purchase-ready layouts using instant AI simulation, clutter detection, and localized inventory tracking.
+- Designed neurodivergent-aware style templates (color psychology) and budget-friendly DIY alternatives using recyclable materials to make workspace design accessible to students.
+
+**Reply AI Agent Challenge 2026** - Rank 64 / 1,920 Teams
+*Python, LangChain, OpenRouter, Langfuse, LightGBM, XGBoost*
+- Built a multi-agent AI risk-classification system using a hybrid ML and LLM pipeline to analyze event, mobility, and persona data, flag high-risk cases, and validate submissions with traceable agent runs.
+
+**OLTEK Paper to Data Hackathon** - Top 10 Finalist
+*FastAPI, PaddleOCR, Ollama, Next.js, PostgreSQL, Docker*
+- Built a document intelligence platform that transformed contracts and scanned logistics paperwork into structured datasets and export-ready Excel reports through OCR, LLM extraction, validation, and a real-time web interface.
+
+**USAII Global AI Hackathon 2026** - Qualifier
+*FastAPI, Astro, React, Supabase, PostgreSQL, Redis*
+- Built a human-in-the-loop AI planning workspace that used multi-stage agents, context retrieval, and proposal validation to turn team chats and project artifacts into structured execution plans.
+
+**ASEAN AI Hackathon 2026** - Participant
+- Proposed a multi-role AI public transport platform that helps commuters choose optimal loading zones using live telemetry, demand signals, confidence scoring, and corridor-level transit analytics.
+
+**IBM Dev Day: Bob Edition Hackathon 2026** - Participant
+*FastAPI, React, TypeScript, watsonx.ai, pandas, Polars*
+- Built a multi-agent ICU deterioration monitoring system that analyzes patient vitals, cross-signal conflicts, and time-sensitive risks to generate risk scores and SBAR briefs for clinicians.
