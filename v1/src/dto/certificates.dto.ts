@@ -74,6 +74,11 @@ export const certificates: props[] = [
     title: 'Reply AI Agent Challenge',
     issuer: 'Reply',
     fileName: 'Reply AI Agent Challenge.pdf'
+  },
+  {
+    title: 'USAII Global AI Hackathon 2026',
+    issuer: 'USAII',
+    fileName: 'USAII Finalist.png'
   }
 ]
 

@@ -24,7 +24,7 @@ interface PdfDocumentProxy {
 export function ResumeViewer({ src, title }: ResumeViewerProps) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const canvasRefs = useRef<(HTMLCanvasElement | null)[]>([])
-  const [documentProxy, setDocumentProxy] = useState<PDFDocumentProxy | null>(null)
+  const [documentProxy, setDocumentProxy] = useState<PdfDocumentProxy | null>(null)
   const [containerWidth, setContainerWidth] = useState(0)
   const [pageCount, setPageCount] = useState(0)
   const [status, setStatus] = useState<"loading" | "rendering" | "ready" | "error">("loading")
@@ -87,7 +87,7 @@ export function ResumeViewer({ src, title }: ResumeViewerProps) {
         pdfjs.GlobalWorkerOptions.workerSrc = workerModule.default
 
         const loadingTask = pdfjs.getDocument({ url: src })
-        const nextDocumentProxy = (await loadingTask.promise) as PdfDocumentProxy
+        const nextDocumentProxy = (await loadingTask.promise) as unknown as PdfDocumentProxy
 
         if (cancelled) {
           void nextDocumentProxy.destroy()
