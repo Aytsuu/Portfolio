@@ -16,7 +16,7 @@ export const testimonials: props[] = [
   {
     testimonial:
       "Paolo Araneta is a strong full-stack developer with standout programming skills across backend Python and frontend React + TypeScript. On the backend, he writes clean, reliable Python services with solid API design, clear data modeling, and practical attention to performance and security. On the frontend, he delivers polished, maintainable interfaces in React, using TypeScript thoughtfully to keep codebases scalable and bug-resistant. Paolo communicates clearly, ships consistently, and takes ownership from implementation to deployment. I'd confidently recommend him for any role needing a dependable, high-impact software engineer.",
-    name: "Bell S. Campanilla, Ph.D",
+    name: "Bell S. Campanilla, Ph.D, DIT",
     company: "Cebu Technological University - Main Campus",
     imageURI: "/assets/testimonials/bell.jpg",
   },
