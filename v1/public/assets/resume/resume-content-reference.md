@@ -11,6 +11,11 @@ Bachelor of Science in Information Technology - Cebu City, Philippines
 **Cloud & DevOps:** Supabase, CI/CD Pipelines, Dockerized Deployments
 
 ## Experience
+**Freelance Software Developer - June 2026 - Present**
+Self Employed - Cebu City, Philippines
+- Develop custom business software that centralizes small-business operations into structured, automated workflows.
+- Build modules for sales order tracking, admin dashboards, customer records, inquiries, business applications, content management, and product management.
+
 **Software Engineer Intern - Feb 2026 - June 2026**
 Dinnox IT Solutions - Cebu City, Philippines
 - Led the development of a client-based website, implemented a structured monolithic architecture, and designed user workflows.
@@ -62,4 +67,4 @@ services.
 
 **IBM Dev Day: Bob Edition Hackathon 2026** - Participant
 *FastAPI, React, TypeScript, watsonx.ai, pandas, Polars*
-- Built a multi-agent ICU deterioration monitoring system that analyzes patient vitals, cross-signal conflicts, and time-sensitive risks to generate risk scores and SBAR briefs for clinicians.
+- Built a multi-agent ICU deterioration monitoring system that analyzes patient vitals, cross-signal conflicts, and time-sensitive risks to generate risk scores and SBAR briefs for clinicians.
