@@ -1,7 +1,7 @@
 # Resume Reference
 
 ## Education
-**Cebu Technological University - Expected July 2026**
+**Cebu Technological University - August 2022 - July 2026**
 Bachelor of Science in Information Technology - Cebu City, Philippines
 
 ## Technical Skills
