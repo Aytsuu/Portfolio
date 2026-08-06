@@ -1,6 +1,6 @@
-PWD d:\Portfolio\v1\public\assets\resume
+PWD D:\Portfolio\v1\public\assets\resume
 INPUT C:\Users\patty\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\Portfolio\v1\public\assets\resume\main.tex
+INPUT D:\Portfolio\v1\public\assets\resume\main.tex
 OUTPUT main.log
 INPUT D:\MikTeX\tex\latex\base\article.cls
 INPUT D:\MikTeX\tex\latex\base\article.cls

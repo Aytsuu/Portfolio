@@ -79,6 +79,14 @@
     \end{tabular*}\vspace{-7pt}
 }
 
+\newcommand{\resumeProjectHeadingWithSubline}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \\
+    \end{tabular*}\vspace{1mm}
+    {\small #2\par}\vspace{-7pt}
+}
+
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
 \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
@@ -118,10 +126,11 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{   
-      \textbf{Languages}{: Python, C\#, Javascript (Typescript), SQL} \\[1mm]
-      \textbf{Frameworks}{: FastAPI, Django, Flask, .NET, React, Node.js} \\[1mm]
+      \textbf{Languages}{: Python, C\#, Javascript (Typescript), PostgreSQL} \\[1mm]
+      \textbf{Frameworks}{: FastAPI, Django, Flask, .NET, React, Node.js, Astro} \\[1mm]
       \textbf{Tools}{: Git, Github, Docker, REST APIs, PostgreSQL, Redis} \\[1mm]
-      \textbf{Cloud \& DevOps}{: Supabase, CI/CD Pipelines, Dockerized Deployments} \\[1mm]
+      \textbf{Cloud \& DevOps}{: Cloudflare, Supabase, Github Actions, Dockerized Deployments, CI/CD Pipelines} \\[1mm]
+      \textbf{LLM Ingrated Workflows}{: Codex, Cursor, Ollama, OpenRouter, LangChain, Langfuse, MCP Servers, Orchestration, Prompt Engineering, Context Engineering, Harness Engineering} \\[1mm]
     }}
  \end{itemize}
  \vspace{-16pt}
@@ -132,7 +141,7 @@
     \resumeSubHeadingListStart
       \resumeSubheading{Freelance Software Developer}{June 2026 -- Present}{Self Employed}{Cebu City, Philippines}
         \resumeItemListStart
-          \resumeItem{Develop custom business software that centralizes business operations into structured, automated workflows.}
+          \resumeItem{Develop custom business software that centralizes small-business operations into structured, automated workflows.}
           \resumeItem{Build modules for sales order tracking, admin dashboards, customer records, inquiries, business applications, content management, and product management.}
         \resumeItemListEnd
       \resumeSubheading{Software Engineer Intern}{Feb 2026 -- June 2026}{Dinnox IT Solutions}{Cebu City, Philippines} 
@@ -141,29 +150,45 @@
           \resumeItem{Fixed a backend bug that heavily affected the development of interns and senior developers.}
           \resumeItem{Increased team productivity by introducing automation tools, such as leveraging agentic engineering in their workflows.}
         \resumeItemListEnd
-      \resumeSubheading{Technical Training Instructor}{Aug 2025 -- Oct 2025}{Barangay San Roque (Ciudad)}{Cebu City, Philippines} 
+      \resumeSubheading{Technical Trainer}{Aug 2025 -- Oct 2025}{Barangay San Roque (Ciudad)}{Cebu City, Philippines} 
         \resumeItemListStart
-          \resumeItem{Served as a student trainer for the BarangayConnect Training Program, empowering \textbf{50+} local government workers through hands-on digital literacy training.}
+          \resumeItem{Served as a trainer for the BarangayConnect Training Program, empowering 50+ local government workers through hands-on digital literacy training.}
           \resumeItem{Introduced and demonstrated key features of the barangay system, showcasing its benefits to non-technical residents and staffs.}
           \resumeItem{Conducted practical training sessions to assess and improve participants' computer literacy and system usage skills.}
         \resumeItemListEnd
     \resumeSubHeadingListEnd
     \vspace{-12pt}
 
-%-----------PROJECTS-----------
-
-\section{Projects} 
+%-----------CLIENT PROJECTS-----------
+\section{Client Projects}
     \vspace{-5pt}
     \resumeSubHeadingListStart
+    \resumeProjectHeadingWithSubline
+      {\textbf{Meatshop and Poultry Business} $|$ \emph{Astro, Cloudflare, Supabase, Redis, Github Actions}}
+      {\emph{\href{https://jehmarp.paoloaraneta.dev}{https://jehmarp.paoloaraneta.dev}}}
+      \resumeItemListStart
+        \resumeItem{Delivered a production sales and order-management platform for a local meatshop and poultry business, centralizing previously fragmented customer, product, order, payment, invoice, and reseller records into auditable end-to-end workflows.}
+        \resumeItem{Built role-based admin and business-agent dashboards for order fulfillment, customer management, sales reporting, agent commissions earnings, and operational content---reducing duplicate data entry and making transactions traceable from order creation through payment.}
+        \resumeItem{Established automated CI/CD pipelines to manage sequential testing and deployments from staging to production, as well as maintenance controls.}
+      \resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-12pt}
+
+%-----------THESIS AND HACKATHON PROJECTS-----------
+\section{Thesis and Hackathon Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Barangay Management System} $|$ \emph{React, Django, Docker}}{}
+      \resumeItemListStart
+        \resumeItem{Developed a web and mobile platform that streamlines barangay operations through a centralized system, automating manual record keeping such as resident/non-resident profiling, incident reporting, blotter, request and issuance of documents, financial budgeting, events, and waste management.}
+        \resumeItem{Key implementations include automated Know Your Customer (KYC) verification and assessment for resident and non-resident (business owners) registration, dynamic public facing page content via admin controls, role-based access with different dashboard views, as well as CI/CD pipelines for developer operations.}
+      \resumeItemListEnd
+    \vspace{-20pt}
     \resumeProjectHeading{\textbf{Orca} $|$ \emph{Python, Astro, React, Redis, Supabase, Docker}}{}
       \resumeItemListStart
         \resumeItem{Developed an AI-powered solution that turns real-time conversations into structured project plans so teams never loses sight of their project's finish line.}
         \resumeItem{Contributed to the development of this project's Minimum Viable Product within 6 days as Full Stack.}
-      \resumeItemListEnd
-    \vspace{-20pt}
-    \resumeProjectHeading{\textbf{Findmyfiles} $|$ \emph{Python, C\#}}{}
-      \resumeItemListStart
-        \resumeItem{Built a searchable memory for Windows desktop files using Gemini Embedding 2 for multimodal data retrieval and embedded it with a vector database.}
       \resumeItemListEnd
     \vspace{-20pt}
     \resumeProjectHeading{\textbf{Hyperlocal Circular Economy Platform} $|$ \emph{React, FastAPI, Supabase, Docker}}{}
@@ -171,26 +196,12 @@
         \resumeItem{Developed an application to divert food wastes from landfill, contributing to environmental wellness while fostering commnuity resilience.}
         \resumeItem{Integrated an AI inference automation for food waste posting via images using gemini cloud LLM models.}
       \resumeItemListEnd
-    \vspace{-20pt}
-    \resumeProjectHeading
-      {\textbf{Barangay Management System} $|$ \emph{React, Django, Docker, SQL}}{}
-      \resumeItemListStart
-        \resumeItem{Implemented an automated Know Your Customer (KYC) verification and assessment for resident registration.}
-        \resumeItem{Synchronized dual databases to ensure consistent real-time data access.}
-        \resumeItem{Set up CI/CD pipelines with GitHub Actions for integration testing and continuous delivery via Render and Supabase services.}
-      \resumeItemListEnd
-    \vspace{-20pt}
-    \resumeProjectHeading
-      {\textbf{Face Recognition Profiling} $|$ \emph{React, Flask, NoSQL}}{}
-      \resumeItemListStart
-        \resumeItem{Developed a biometric profiling application using the FaceNet model for high-accuracy face recognition and Flask-SocketIO to enable real-time, bidirectional communication.}
-      \resumeItemListEnd
 \resumeSubHeadingListEnd
 \vspace{-12pt}
 
 %-----------HACKATHONS & COMPETITIONS-----------
 \vspace{3pt}
-\section{Hackathons \& Ideathons}
+\section{Hackathon \& Ideathon Competitions}
 \vspace{-6pt}
 \resumeSubHeadingListStart
 
@@ -203,7 +214,7 @@
 \vspace{-10pt}
 
 \resumeProjectHeading
-  {\textbf{Reply AI Agent Challenge 2026} $|$ \emph{Python, LangChain, OpenRouter, Langfuse}}{Rank 64 / 1,920 Teams}
+  {\textbf{Reply AI Agent Challenge 2026} $|$ \emph{Python, LangChain, OpenRouter, Langfuse, LightGBM, XGBoost}}{Rank 64 / 1,920 Teams}
   \resumeItemListStart
     \resumeItem{Built a multi-agent AI risk-classification system using a hybrid ML and LLM pipeline to analyze event, mobility, and persona data, flag high-risk cases, and validate submissions with traceable agent runs.}
   \resumeItemListEnd

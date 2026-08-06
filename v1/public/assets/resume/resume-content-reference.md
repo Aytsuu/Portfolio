@@ -5,10 +5,11 @@
 Bachelor of Science in Information Technology - Cebu City, Philippines
 
 ## Technical Skills
-**Languages:** Python, C#, Javascript (Typescript), SQL
-**Frameworks:** FastAPI, Django, Flask, .NET, React, Node.js
+**Languages:** Python, C#, Javascript (Typescript), PostgreSQL
+**Frameworks:** FastAPI, Django, Flask, .NET, React, Node.js, Astro
 **Tools:** Git, Github, Docker, REST APIs, PostgreSQL, Redis
-**Cloud & DevOps:** Supabase, CI/CD Pipelines, Dockerized Deployments
+**Cloud & DevOps:** Cloudflare, Supabase, Github Actions, Dockerized Deployments, CI/CD Pipelines
+**LLM Ingrated Workflows:** Codex, Cursor, Ollama, OpenRouter, LangChain, Langfuse, MCP Servers, Orchestration, Prompt Engineering, Context Engineering, Harness Engineering
 
 ## Experience
 **Freelance Software Developer - June 2026 - Present**
@@ -22,30 +23,33 @@ Dinnox IT Solutions - Cebu City, Philippines
 - Fixed a backend bug that heavily affected the development of interns and senior developers.
 - Increased team productivity by introducing automation tools, such as leveraging agentic engineering in their workflows.
 
-**Technical Training Instructor - Aug 2025 – Oct 2025**
+**Technical Trainer - Aug 2025 – Oct 2025**
 Barangay San Roque (Ciudad) - Cebu City, Philippines
-- Served as a student trainer for the BarangayConnect Training Program, empowering 50+ local government workers through hands-on digital literacy training.
+- Served as a trainer for the BarangayConnect Training Program, empowering 50+ local government workers through hands-on digital literacy training.
 - Introduced and demonstrated key features of the barangay system, showcasing its benefits to non-technical residents and staffs.
 - Conducted practical training sessions to assess and improve participants’ computer literacy and system usage skills.
 
-## Projects
-**Findmyfiles | *Python, C#*** 
-- Built a searchable memory for windows desktop files using gemini embedding 2 for multimodal data retrieval and embed it with a vector.
+## Client Projects
+**Meatshop and Poultry Business | *Astro, Cloudflare, Supabase, Redis, Github Actions***
+*https://jehmarp.paoloaraneta.dev*
+- Delivered a production sales and order-management platform for a local meatshop and poultry business, centralizing previously fragmented customer, product, order, payment, invoice, and reseller records into auditable end-to-end workflows.
+- Built role-based admin and business-agent dashboards for order fulfillment, customer management, sales reporting, agent commissions earnings, and operational content—reducing duplicate data entry and making transactions traceable from order creation through payment.
+- Established automated CI/CD pipelines to manage sequential testing and deployments from staging to production, as well as maintenance controls.
+
+## Thesis and Hackathon Projects
+**Barangay Management System | *React, Django, Docker***
+- Developed a web and mobile platform that streamlines barangay operations through a centralized system, automating manual record keeping such as resident/non-resident profiling, incident reporting, blotter, request and issuance of documents, financial budgeting, events, and waste management.
+- Key implementations include automated Know Your Customer (KYC) verification and assessment for resident and non-resident (business owners) registration, dynamic public facing page content via admin controls, role-based access with different dashboard views, as well as CI/CD pipelines for developer operations. 
+
+**Orca | *Python, Astro, React, Redis, Supabase, Docker***
+- Developed an AI-powered solution that turns real-time conversations into structured project plans so teams never loses sight of their project's finish line.
+- Contributed to the development of this project's Minimum Viable Product within 6 days as Full Stack.
 
 **Hyperlocal Circular Economy Platform | *React, FastAPI, Supabase, Docker***
 - Developed an application to divert food wastes from landfill, contributing to environmental wellness while fostering commnuity resilience.
 - Integrated an AI inference automation for food waste posting via images using gemini cloud LLM models.
 
-**Barangay Management System | *React, Django, Docker, SQL***
-- Implemented an automated Know Your Customer (KYC) verification and assessment for resident registration.
-- Synchronized dual databases to ensure consistent real-time data access.
-- Set up CI/CD pipelines with GitHub Actions for integration testing and continous delivery via Render and Suapabase
-services.
-
-**Face Recognition Profiling | *React, Flask, NoSQL***
-- Developed a biometric profiling application using the FaceNet model for high-accuracy face recognition and Flask-SocketIO to enable real-time, bidirectional communication.
-
-## Hackathons & Competitions
+## Hackathon & Ideathon Competitions
 **Southeast Asia Innovation Competition** - Participant
 - Proposed a wellness-centric workspace planning platform that transforms room photos into purchase-ready layouts using instant AI simulation, clutter detection, and localized inventory tracking.
 - Designed neurodivergent-aware style templates (color psychology) and budget-friendly DIY alternatives using recyclable materials to make workspace design accessible to students.
@@ -58,7 +62,7 @@ services.
 *FastAPI, PaddleOCR, Ollama, Next.js, PostgreSQL, Docker*
 - Built a document intelligence platform that transformed contracts and scanned logistics paperwork into structured datasets and export-ready Excel reports through OCR, LLM extraction, validation, and a real-time web interface.
 
-**USAII Global AI Hackathon 2026** - Qualifier
+**USAII Global AI Hackathon 2026** - Finalist
 *FastAPI, Astro, React, Supabase, PostgreSQL, Redis*
 - Built a human-in-the-loop AI planning workspace that used multi-stage agents, context retrieval, and proposal validation to turn team chats and project artifacts into structured execution plans.
 
