@@ -6,10 +6,10 @@ Bachelor of Science in Information Technology - Cebu City, Philippines
 
 ## Technical Skills
 **Languages:** Python, C#, Javascript (Typescript), PostgreSQL
-**Frameworks:** FastAPI, Django, Flask, .NET, React, Node.js, Astro
-**Tools:** Git, Github, Docker, REST APIs, PostgreSQL, Redis
+**Frameworks:** RESTful, FastAPI, Django, Flask, .NET, React, Node.js, Astro
+**Tools:** Git, Github, Docker, PostgreSQL, Redis, Codex, Cursor, Claude Code, Ollama, OpenRouter
 **Cloud & DevOps:** Cloudflare, Supabase, Github Actions, Dockerized Deployments, CI/CD Pipelines
-**LLM Ingrated Workflows:** Codex, Cursor, Ollama, OpenRouter, LangChain, Langfuse, MCP Servers, Orchestration, Prompt Engineering, Context Engineering, Harness Engineering
+**LLM Ingrated Workflows:** LangChain, Langfuse, MCP Servers, Orchestration, Retrieval-Augmented Generation (RAG), Prompt Engineering, Context Engineering, Harness Engineering
 
 ## Experience
 **Freelance Software Developer - June 2026 - Present**
