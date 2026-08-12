@@ -9,23 +9,30 @@ interface props {
 
 export const experiences: props[] = [
   {
-    title: 'Software Engineer Intern',
-    experiencedAt: 'Dinnox IT Solutions',
-    year: 'Feb 2026 - June 2026',
-    location: 'Cebu City, Philippines',
+    title: 'Freelance Software Developer',
+    experiencedAt: 'Self Employed - Project Based',
+    year: 'Jun 2026 - Present',
+    location: 'Cebu, Philippines',
     skills: []
   },
   {
-    title: 'Technical Training Instructor',
+    title: 'Software Engineer Intern',
+    experiencedAt: 'Dinnox IT Solutions',
+    year: 'Feb 2026 - Jun 2026',
+    location: 'Cebu, Philippines',
+    skills: []
+  },
+  {
+    title: 'Technical Trainer',
     experiencedAt: 'Barangay San Roque (Ciudad)',
-    year: 'Aug 2025 - Oct 2025',
-    location: 'Cebu City, Philippines',
+    year: 'Aug 2026 - Oct 2025',
+    location: 'Cebu, Philippines',
     skills: []
   },
   {
     title: 'BS Information Technology',
-    experiencedAt: 'Cebu Technological University - Main Campus',
-    year: '2022 - Expected July 2026',
-    location: 'Cebu City, Philippines'
+    experiencedAt: 'Cebu Technological Univeristy - Main Campus',
+    year: 'Aug 2022 - Jul 2026',
+    location: 'Cebu, Philippines'
   }
 ]
