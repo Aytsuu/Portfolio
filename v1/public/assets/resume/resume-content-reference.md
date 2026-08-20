@@ -36,7 +36,7 @@ Barangay San Roque (Ciudad) - Cebu City, Philippines
 - Built role-based admin and business-agent dashboards for order fulfillment, customer management, sales reporting, agent commissions earnings, and operational content—reducing duplicate data entry and making transactions traceable from order creation through payment.
 - Established automated CI/CD pipelines to manage sequential testing and deployments from staging to production, as well as maintenance controls.
 
-## Thesis and Hackathon Projects
+## Capstone and Hackathon Projects
 **Barangay Management System | *React, Django, Docker***
 - Developed a web and mobile platform that streamlines barangay operations through a centralized system, automating manual record keeping such as resident/non-resident profiling, incident reporting, blotter, request and issuance of documents, financial budgeting, events, and waste management.
 - Key implementations include automated Know Your Customer (KYC) verification and assessment for resident and non-resident (business owners) registration, dynamic public facing page content via admin controls, role-based access with different dashboard views, as well as CI/CD pipelines for developer operations. 
