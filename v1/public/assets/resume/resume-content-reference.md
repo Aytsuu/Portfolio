@@ -5,7 +5,7 @@
 Bachelor of Science in Information Technology - Cebu City, Philippines
 
 ## Technical Skills
-**Languages:** Python, C#, Javascript (Typescript), PostgreSQL
+**Languages:** Python, C#, Javascript (Typescript), PostgreSQL, HTML, CSS
 **Frameworks:** RESTful, FastAPI, Django, Flask, .NET, React, Next.js, Node.js, Astro, TailwindCSS
 **Tools:** Git, Github, Docker, PostgreSQL, Redis, Codex, Cursor, Claude Code, Ollama, OpenRouter
 **Cloud & DevOps:** Cloudflare, Vercel, GCP, Supabase, Github Actions, Dockerized Deployments, CI/CD Pipelines
